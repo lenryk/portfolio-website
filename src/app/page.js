@@ -1,12 +1,13 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import Heading from "@/components/Heading";
 
 export default function Home() {
   return (
-    <main>
-      <h1>TEST</h1>
-    </main>
-  )
+    <section>
+      <Heading size="h1">Sam Carr</Heading>
+      <Heading
+        size="h2"
+        className="text-secondary-indigo"
+      >{`> Front-end developer`}</Heading>
+    </section>
+  );
 }
