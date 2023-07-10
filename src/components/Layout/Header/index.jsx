@@ -5,7 +5,7 @@ const Header = () => {
         id="name"
         className="w-[311px] max-w-[311px] border-b border-r border-solid border-lines py-4.5 pl-6"
       >
-        Sam Carr
+        sam-carr
       </div>
       <div id="hello" className="border-b border-r border-lines px-7 py-4.5">
         _hello

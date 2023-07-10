@@ -1,6 +1,6 @@
-import LinkedInBox from "@/assets/icons/linkedin-box-fill.svg";
-import LinkedInFill from "@/assets/icons/linkedin-fill.svg";
-import GithubFill from "@/assets/icons/github-fill.svg";
+import LinkedInBox from "../../../public/icons/linkedin-box-fill.svg";
+import LinkedInFill from "../../../public/icons/linkedin-fill.svg";
+import GithubFill from "../../../public/icons/github-fill.svg";
 import Image from "next/image";
 
 const Icon = ({ alt, icon, className, size = 21 }) => {
