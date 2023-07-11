@@ -1,7 +1,8 @@
 "use client";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-const Header = () => {
+export default function Header() {
   const currentRoute = usePathname();
 
   const middleButtons = {
@@ -12,49 +13,33 @@ const Header = () => {
 
   return (
     <nav className="flex max-h-[56px] min-h-[56px] text-secondary-lynch">
-      <div
+      <Link
         id="name"
         className="w-[311px] max-w-[311px] border-b border-r border-solid border-lines py-4.5 pl-6"
+        href="/"
       >
         sam-carr
-      </div>
-      <div
-        id="hello"
-        className="relative border-b border-r border-lines px-7 py-4.5 "
-      >
-        _hello
-        <div
-          className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-            currentRoute === "/" ? "" : "hidden"
-          }`}
-        ></div>
-      </div>
-      <div
-        id="about"
-        className=" relative border-b border-r border-lines px-7 py-4.5"
-      >
-        _about-me
-        <div
-          className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-            currentRoute === "/about-me" ? "" : "hidden"
-          }`}
-        ></div>
-      </div>
-      <div
-        id="projects"
-        className="relative border-b border-r border-lines px-7 py-4.5"
-      >
-        _projects
-        <div
-          className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-            currentRoute === "/projects" ? "" : "hidden"
-          }`}
-        ></div>
-      </div>
+      </Link>
+      {Object.entries(middleButtons).map(([name, url]) => (
+        <Link
+          key={url}
+          id={name}
+          className="relative border-b border-r border-lines px-7 py-4.5"
+          href={url}
+        >
+          {name}
+          <div
+            className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
+              currentRoute === url ? "" : "hidden"
+            }`}
+          ></div>
+        </Link>
+      ))}
       <div className="flex-grow border-b border-lines px-7 py-4.5"></div>
-      <div
+      <Link
         id="contact"
         className="relative ml-auto border-b border-l border-lines px-7 py-4.5"
+        href="/contact-me"
       >
         _contact-me
         <div
@@ -62,9 +47,7 @@ const Header = () => {
             currentRoute === "/contact-me" ? "" : "hidden"
           }`}
         ></div>
-      </div>
+      </Link>
     </nav>
   );
-};
-
-export default Header;
+}

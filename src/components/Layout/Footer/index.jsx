@@ -1,4 +1,5 @@
 import Icon from "@/components/Icon";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -10,20 +11,22 @@ const Footer = () => {
       >
         find me on:
       </div>
-      <div
+      <Link
         id="name"
         className="flex w-[52px] max-w-[52px] items-center justify-center border-r border-t border-solid border-lines"
+        href="https://www.linkedin.com/in/sam-carr-9a78b15b"
       >
         <Icon className="" icon="LinkedInFill" />
-      </div>
+      </Link>
       <div className="flex-grow border-t border-solid border-lines"></div>
-      <div
+      <Link
         id="name"
         className="flex items-center gap-1 border-l border-r border-t border-solid border-lines px-7 py-4.5"
+        href="https://github.com/lenryk"
       >
-        @username
+        @lenryk
         <Icon icon="GithubFill" size={24} />
-      </div>
+      </Link>
     </footer>
   );
 };
