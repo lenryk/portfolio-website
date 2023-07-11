@@ -2,7 +2,7 @@ import Icon from "@/components/Icon";
 
 const Footer = () => {
   return (
-    <footer className="min-h-56 flex text-secondary-lynch">
+    <footer className="flex max-h-[56px] min-h-[56px] text-secondary-lynch">
       {" "}
       <div
         id="name"

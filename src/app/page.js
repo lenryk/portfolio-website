@@ -17,7 +17,7 @@ export default function Home() {
           <p>// complete the game to continue</p>
         </div>
       </div>
-      <div className="portrait-text portrait h-[510px] w-[510px] text-center">
+      <div className="portrait-text portrait h-[510px] w-[510px] text-center duration-150 hover:skew-y-12">
         Once upon a time, in a picturesque town nestled amidst rolling hills,
         lived a young and inquisitive boy named Sam. From an early age, Sam
         displayed an insatiable appetite for technology and possessed a keen eye
