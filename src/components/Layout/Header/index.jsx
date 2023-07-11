@@ -12,10 +12,10 @@ export default function Header() {
   };
 
   return (
-    <nav className="flex max-h-[56px] min-h-[56px] text-secondary-lynch">
+    <nav className="flex h-[56px] min-h-[56px] justify-between border-b border-solid border-lines text-secondary-lynch">
       <Link
         id="name"
-        className="w-[311px] max-w-[311px] border-b border-r border-solid border-lines py-4.5 pl-6"
+        className="w-[311px] max-w-[311px] border-r border-solid border-lines py-4.5 pl-6"
         href="/"
       >
         sam-carr
@@ -24,7 +24,9 @@ export default function Header() {
         <Link
           key={url}
           id={name}
-          className="relative border-b border-r border-lines px-7 py-4.5"
+          className={`relative border-r border-lines px-7 py-4.5 ${
+            currentRoute === url ? "text-secondary" : ""
+          }`}
           href={url}
         >
           {name}
@@ -35,10 +37,9 @@ export default function Header() {
           ></div>
         </Link>
       ))}
-      <div className="flex-grow border-b border-lines px-7 py-4.5"></div>
       <Link
         id="contact"
-        className="relative ml-auto border-b border-l border-lines px-7 py-4.5"
+        className="relative ml-auto border-l border-lines px-7 py-4.5"
         href="/contact-me"
       >
         _contact-me
