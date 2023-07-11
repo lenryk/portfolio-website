@@ -1,5 +1,7 @@
 import Header from "@/components/Layout/Header";
 import Footer from "@/components/Layout/Footer";
+import PropTypes from "prop-types";
+import CodeText from "@/components/CodeText";
 
 const Container = ({ children }) => {
   return (
@@ -12,3 +14,7 @@ const Container = ({ children }) => {
 };
 
 export default Container;
+
+CodeText.PropTypes = {
+  children: PropTypes.node.isRequired,
+};

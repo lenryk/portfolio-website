@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 export default function CodeText({ children }) {
   const length = 16;
 
@@ -26,3 +27,7 @@ export default function CodeText({ children }) {
 /**
  *
  */
+
+CodeText.PropTypes = {
+  children: PropTypes.node.isRequired,
+};

@@ -1,15 +1,11 @@
-import LinkedInBox from "../../../public/icons/linkedin-box-fill.svg";
-import LinkedInFill from "../../../public/icons/linkedin-fill.svg";
-import GithubFill from "../../../public/icons/github-fill.svg";
 import Image from "next/image";
+import PropTypes from "prop-types";
 
-const Icon = ({ alt, icon, className, size = 21 }) => {
-  const icons = { LinkedInBox, LinkedInFill, GithubFill };
-
+const Icon = ({ alt, icon, className, size }) => {
   return (
     <Image
       className={className}
-      src={icons[icon]}
+      src={`/icons/${icon}.svg`}
       alt={alt}
       width={size}
       height={size}
@@ -18,3 +14,31 @@ const Icon = ({ alt, icon, className, size = 21 }) => {
 };
 
 export default Icon;
+
+Icon.PropTypes = {
+  alt: PropTypes.string.isRequired,
+  icon: PropTypes.oneOf([
+    "github",
+    "arrow-down",
+    "arrow-right",
+    "close",
+    "folder-green",
+    "folder-purple",
+    "folder-red",
+    "gamepad",
+    "image",
+    "javascript",
+    "linkedin",
+    "mail",
+    "markdown",
+    "terminal-box",
+    "user",
+  ]).isRequired,
+  className: PropTypes.string,
+  size: PropTypes.number,
+};
+
+Icon.defaultProps = {
+  className: "",
+  size: 21,
+};

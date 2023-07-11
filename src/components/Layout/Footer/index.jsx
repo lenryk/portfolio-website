@@ -15,7 +15,7 @@ const Footer = () => {
         className="flex w-[52px] max-w-[52px] items-center justify-center border-r border-solid border-lines"
         href="https://www.linkedin.com/in/sam-carr-9a78b15b"
       >
-        <Icon className="" icon="LinkedInFill" />
+        <Icon className="" icon="linkedin" />
       </Link>
       {/*<div className="flex-grow border-t border-solid border-lines"></div>*/}
       <Link
@@ -24,7 +24,7 @@ const Footer = () => {
         href="https://github.com/lenryk"
       >
         @lenryk
-        <Icon icon="GithubFill" size={24} />
+        <Icon icon="github" size={24} />
       </Link>
     </footer>
   );
