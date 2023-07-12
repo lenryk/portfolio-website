@@ -1,5 +1,5 @@
 import "./globals.css";
-import Container from "src/components/Layout/Container";
+import Container from "@/components/Layout/Container";
 import { Fira_Code } from "next/font/google";
 
 const firaCode = Fira_Code({
@@ -9,8 +9,9 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: "Sam Carr - Web Developer",
-  description: "Created with Next.js",
+  title: "Sam Carr - Fullstack Software Engineer - UK",
+  description:
+    "This website was created with Next.js + Tailwind. Check my Github for the full source code.",
 };
 
 export default function RootLayout({ children }) {

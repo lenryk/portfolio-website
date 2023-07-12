@@ -24,6 +24,11 @@ module.exports = {
       "gradient-indigo": "#4D5BCE",
       "gradient-turquoise": "#43D9AD",
       "main-bg": "#010C15",
+      button: "#1C2B3A",
+      "button-hover": "#263B50",
+      "button-primary": "#FEA55F",
+      "button-primary-hover": "#FFAC6B",
+      "button-ghost": "transparent",
     },
     fontFamily: {
       sans: ["var(--font-fira)"],
