@@ -15,7 +15,7 @@ export default function ContactMeSuccess() {
         </div>
         <div className="my-auto flex flex-col items-center">
           <Heading size="h2">Thank you! 🤘</Heading>
-          <p className="mt-2.5 w-[380px] text-center">
+          <p className="mt-2.5 w-[380px] text-center text-secondary-lynch">
             Your message has been sent. You will receive an answer real soon!
           </p>
           <Button className="mt-9" as="link" href="/contact-me">
