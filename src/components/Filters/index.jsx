@@ -2,16 +2,19 @@
 import FilterRow from "@/components/Filters/FilterRow";
 import { useState } from "react";
 
-export default function Filters() {
-  const [filters, setFilters] = useState({
+export default function Filters({ handleFilters }) {
+  const [filters, setFilters] = useState(() => ({
     react: false,
     "next.js": false,
     netlify: false,
     tailwind: false,
-  });
+  }));
 
   function handleFilterClick(name) {
-    setFilters((oldState) => ({ ...oldState, [name]: !filters[name] }));
+    setFilters((oldState) => {
+      handleFilters({ ...oldState, [name]: !filters[name] });
+      return { ...oldState, [name]: !filters[name] };
+    });
   }
 
   return (
