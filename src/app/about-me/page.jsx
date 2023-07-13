@@ -42,7 +42,7 @@ export default function AboutMe() {
         <div className="flex h-[40px] items-center gap-[11px] border-0 border-b border-lines pl-4">
           <Icon icon="contact" size={24} /> contacts
         </div>
-        <div className="flex flex-col gap-[9px] pl-4 pt-6">
+        <div className="flex flex-col gap-[9px] pl-4 pt-6 text-secondary-lynch">
           <div className="flex gap-[9px]">
             <Icon icon="mail" size={24} /> user@gmail.com
           </div>
@@ -54,7 +54,7 @@ export default function AboutMe() {
       <div className="flex justify-evenly">
         <div className="border-0 border-r border-lines">
           <div className="flex h-[41px] border-b border-lines">
-            <div className="flex items-center border-r border-lines pl-3.5 pr-3">
+            <div className="flex items-center border-r border-lines pl-3.5 pr-3 text-secondary-lynch">
               personal-info <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="border-b border-lines" />
@@ -72,7 +72,7 @@ export default function AboutMe() {
         </div>
         <div className="">
           <div className="flex h-[41px] border-b border-lines">
-            <div className="flex items-center border-r border-lines pl-3.5 pr-3">
+            <div className="flex items-center border-r border-lines pl-3.5 pr-3 text-secondary-lynch">
               README.txt <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="h-[41px] border-b border-lines" />

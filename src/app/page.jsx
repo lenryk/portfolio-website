@@ -1,4 +1,5 @@
 import Heading from "@/components/Heading";
+import Button from "@/components/Button";
 
 export default function Home() {
   return (
@@ -9,12 +10,20 @@ export default function Home() {
           <Heading
             size="h2"
             className="pt-2 text-secondary-indigo"
-          >{`> Front-end developer`}</Heading>
+          >{`> Fullstack developer`}</Heading>
         </div>
         <div className="text-secondary-lynch">
           <p>// complete the game to continue</p>
           <p>// you can also see it on my Github page</p>
           <p>// complete the game to continue</p>
+          <div className="flex gap-4">
+            <Button className="mt-4" as="link" href="/projects">
+              view projects
+            </Button>
+            <Button preset="primary" className="mt-4">
+              download CV
+            </Button>
+          </div>
         </div>
       </div>
       <div className="portrait-text portrait h-[510px] w-[510px] text-center duration-150 hover:skew-y-12">

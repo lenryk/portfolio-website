@@ -37,8 +37,12 @@ export default function Card({ name, metadata }) {
         <div className="px-8 py-6">
           <p className="text-secondary-lynch">{metadata.text}</p>
           <div className="flex gap-5 pt-5">
-            <Button preset="primary">view-project</Button>
-            <Button>view-code</Button>
+            <Button preset="primary" as="link" href={metadata.url}>
+              view-project
+            </Button>
+            <Button as="link" href={metadata.githubUrl}>
+              view-code
+            </Button>
           </div>
         </div>
       </div>
