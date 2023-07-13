@@ -10,6 +10,7 @@ export default function Input({ type, label, children }) {
           border-lines bg-primary-blue-charcoal p-4
           text-secondary-lynch focus:outline-none"
           id={label}
+          required
         />
       ) : (
         <input
@@ -18,6 +19,7 @@ export default function Input({ type, label, children }) {
           outline-secondary-lynch focus:outline-none focus:outline "
           id={label}
           type={type}
+          required
         />
       )}
     </div>
