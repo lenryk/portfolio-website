@@ -1,54 +1,51 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import headerLinks from "@/utils/headerLinks";
 
 export default function Header() {
   const currentRoute = usePathname();
 
-  const middleButtons = {
-    _hello: "/",
-    "_about-me": "/about-me",
-    _projects: "/projects",
-  };
-
   return (
-    <nav className="flex h-[56px] min-h-[56px] justify-between border-b border-solid border-lines text-secondary-lynch">
+    <nav
+      className="hidden h-[56px] min-h-[56px] justify-between
+    border-b border-solid border-lines text-secondary-lynch lg:flex"
+    >
       <Link
         id="name"
-        className="w-[311px] max-w-[311px] border-r border-solid border-lines py-4.5 pl-6"
+        className="ml-6 max-w-[311px] border-solid border-lines py-4.5 lg:w-[311px] lg:border-r"
         href="/"
       >
         sam-carr
       </Link>
-      {Object.entries(middleButtons).map(([name, url]) => (
-        <Link
-          key={url}
-          id={name}
-          className={`relative border-r border-lines px-7 py-4.5 ${
-            currentRoute === url ? "text-secondary" : ""
-          }`}
-          href={url}
-        >
-          {name}
-          <div
-            className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-              currentRoute === url ? "" : "hidden"
+      {Object.entries(headerLinks).map(([name, url]) => {
+        if (!name) {
+          return (
+            <div
+              key="invisible"
+              className="relative hidden flex-grow border-r border-lines px-7 py-4.5 lg:block"
+            />
+          );
+        }
+
+        return (
+          <Link
+            key={url}
+            id={name}
+            className={`relative hidden border-r border-lines px-7 py-4.5 lg:block ${
+              currentRoute === url ? "text-secondary" : ""
             }`}
-          ></div>
-        </Link>
-      ))}
-      <Link
-        id="contact"
-        className="relative ml-auto border-l border-lines px-7 py-4.5"
-        href="/contact-me"
-      >
-        _contact-me
-        <div
-          className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-            currentRoute === "/contact-me" ? "" : "hidden"
-          }`}
-        ></div>
-      </Link>
+            href={url}
+          >
+            {name}
+            <div
+              className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
+                currentRoute === url ? "" : "hidden"
+              }`}
+            ></div>
+          </Link>
+        );
+      })}
     </nav>
   );
 }

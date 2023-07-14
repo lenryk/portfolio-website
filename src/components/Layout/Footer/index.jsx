@@ -3,10 +3,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="flex max-h-[56px] min-h-[56px] border-t border-lines text-secondary-lynch">
+    <footer className="relative z-40 flex max-h-[56px] min-h-[56px] rounded-lg rounded-t-none border border-lines text-secondary-lynch">
       <div
         id="name"
-        className="w-[146px] max-w-[146px] cursor-default border-r border-solid border-lines py-4.5 pl-6"
+        className="ml-4 max-w-[146px] cursor-default border-r border-solid border-lines py-4.5 pr-4 lg:ml-6"
       >
         find me on:
       </div>
@@ -17,10 +17,9 @@ const Footer = () => {
       >
         <Icon className="" icon="linkedin" />
       </Link>
-      {/*<div className="flex-grow border-t border-solid border-lines"></div>*/}
       <Link
         id="name"
-        className="ml-auto flex items-center gap-1 border-l border-solid border-lines px-7 py-4.5"
+        className="ml-auto flex items-center gap-1 border-l border-solid border-lines px-4 py-4 lg:px-7 lg:py-4.5"
         href="https://github.com/lenryk"
       >
         @lenryk

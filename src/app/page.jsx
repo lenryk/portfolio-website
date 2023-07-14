@@ -3,8 +3,11 @@ import Button from "@/components/Button";
 
 export default function Home() {
   return (
-    <section className="flex h-full content-center items-center justify-center gap-32">
-      <div className="flex flex-col gap-20">
+    <section
+      className="flex h-full flex-col content-center items-center justify-center
+    gap-24 p-5 lg:flex-row lg:gap-5 lg:p-7"
+    >
+      <div className="flex flex-col gap-8 sm:gap-20">
         <div>
           <Heading size="h1">Sam Carr</Heading>
           <Heading
@@ -13,9 +16,9 @@ export default function Home() {
           >{`> Fullstack developer`}</Heading>
         </div>
         <div className="text-secondary-lynch">
-          <p>// complete the game to continue</p>
-          <p>// you can also see it on my Github page</p>
-          <p>// complete the game to continue</p>
+          <p>// welcome to my portfolio website</p>
+          <p>// be sure to checkout out my projects</p>
+          <p>// contact me if you have any questions</p>
           <div className="flex gap-4">
             <Button className="mt-4" as="link" href="/projects">
               view projects
@@ -26,7 +29,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="portrait-text portrait h-[510px] w-[510px] text-center duration-150 hover:skew-y-12">
+      <div
+        className="portrait-text portrait hidden
+      h-[510px] w-[510px] text-center duration-150 hover:skew-y-12 lg:block"
+      >
         Once upon a time, in a picturesque town nestled amidst rolling hills,
         lived a young and inquisitive boy named Sam. From an early age, Sam
         displayed an insatiable appetite for technology and possessed a keen eye
