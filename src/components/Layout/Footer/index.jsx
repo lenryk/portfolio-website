@@ -3,7 +3,10 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="relative z-40 flex max-h-[56px] min-h-[56px] rounded-lg rounded-t-none border border-lines text-secondary-lynch">
+    <footer
+      className="relative z-40 flex max-h-[56px] min-h-[56px]
+     rounded-lg rounded-t-none border border-lines text-secondary-lynch"
+    >
       <div
         id="name"
         className="ml-4 max-w-[146px] cursor-default border-r border-solid border-lines py-4.5 pr-4 lg:ml-6"

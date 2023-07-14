@@ -4,8 +4,8 @@ import Button from "@/components/Button";
 export default function Home() {
   return (
     <section
-      className="flex h-full flex-col content-center items-center justify-center
-    gap-24 p-5 lg:flex-row lg:gap-5 lg:p-7"
+      className="flex h-full flex-col items-center
+    justify-center gap-24 p-5 lg:flex-row lg:gap-5 lg:p-7"
     >
       <div className="flex flex-col gap-8 sm:gap-20">
         <div>
@@ -31,7 +31,7 @@ export default function Home() {
       </div>
       <div
         className="portrait-text portrait hidden
-      h-[510px] w-[510px] text-center duration-150 hover:skew-y-12 lg:block"
+      h-[510px] w-[510px] text-center duration-150 lg:block"
       >
         Once upon a time, in a picturesque town nestled amidst rolling hills,
         lived a young and inquisitive boy named Sam. From an early age, Sam

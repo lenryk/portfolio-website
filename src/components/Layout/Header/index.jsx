@@ -8,8 +8,8 @@ export default function Header() {
 
   return (
     <nav
-      className="hidden h-[56px] min-h-[56px] justify-between
-    border-b border-solid border-lines text-secondary-lynch lg:flex"
+      className="hidden h-[56px] min-h-[56px]
+    justify-between border-b border-solid border-lines text-secondary-lynch lg:flex"
     >
       <Link
         id="name"
@@ -18,7 +18,7 @@ export default function Header() {
       >
         sam-carr
       </Link>
-      {Object.entries(headerLinks).map(([name, url]) => {
+      {Object.entries(headerLinks).map(([name, url], index) => {
         if (!name) {
           return (
             <div
@@ -32,7 +32,9 @@ export default function Header() {
           <Link
             key={url}
             id={name}
-            className={`relative hidden border-r border-lines px-7 py-4.5 lg:block ${
+            className={`relative hidden ${
+              index !== Object.entries(headerLinks).length - 1 ? "border-r" : ""
+            } border-lines px-7 py-4.5 lg:block ${
               currentRoute === url ? "text-secondary" : ""
             }`}
             href={url}

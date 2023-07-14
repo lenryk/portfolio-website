@@ -24,18 +24,23 @@ export default function MobileMenu() {
       <div className="relative z-40 hidden h-full peer-checked:block peer-checked:lg:hidden">
         <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col">
           <ul className="mx-px bg-primary-midnight">
-            {Object.entries(headerLinks).map(([name, url]) => (
-              <li key={url}>
-                <Link
-                  href={url}
-                  className="block border-b border-lines py-2 pl-4 "
-                >
-                  {name}
-                </Link>
-              </li>
-            ))}
+            {Object.entries(headerLinks).map(([name, url]) => {
+              if (!name) {
+                return null;
+              }
+              return (
+                <li key={url}>
+                  <Link
+                    href={url}
+                    className="block border-b border-lines py-2 pl-4 "
+                  >
+                    {name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
-          <div className="mx-px flex-grow bg-primary-midnight " />
+          <div className="mx-px min-h-full bg-primary-midnight " />
         </div>
       </div>
     </div>

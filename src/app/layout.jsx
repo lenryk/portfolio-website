@@ -16,8 +16,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${firaCode.variable}`}>
-      <body className="flex h-screen min-h-[450px] items-center bg-main-bg p-6">
+    <html lang="en" className={`${firaCode.variable} h-full`}>
+      <body className="flex min-h-full bg-main-bg p-6">
         <Container>{children}</Container>
       </body>
     </html>

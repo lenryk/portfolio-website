@@ -7,8 +7,8 @@ import MobileHeader from "@/components/Layout/MobileHeader";
 const Container = ({ children }) => {
   return (
     <main
-      className="flex h-full
-    min-h-[450px] w-full flex-col overflow-clip
+      className="flex
+    w-full flex-col overflow-clip
     rounded-lg bg-primary-midnight text-secondary
     outline outline-1 outline-offset-[-1px] outline-lines"
     >
