@@ -1,8 +1,16 @@
+"use client";
 import Icon from "@/components/Icon";
 import Link from "next/link";
 import headerLinks from "@/utils/headerLinks";
+import { useState } from "react";
 
 export default function MobileMenu() {
+  const [visible, setVisible] = useState(false);
+
+  function handleMobileMenuVisibility() {
+    setVisible((oldState) => !oldState);
+  }
+
   return (
     <div className="">
       <nav
@@ -20,9 +28,18 @@ export default function MobileMenu() {
           <Icon icon="hamburger-menu" className="lg:hidden" />
         </label>
       </nav>
-      <input type="checkbox" id="menu-toggle" className="peer hidden" />
-      <div className="relative z-40 hidden h-full peer-checked:block peer-checked:lg:hidden">
-        <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col">
+      <input
+        type="checkbox"
+        id="menu-toggle"
+        className="peer hidden"
+        checked={visible}
+        onClick={handleMobileMenuVisibility}
+      />
+      <div
+        className="relative z-40 h-full opacity-0 transition-opacity duration-300
+      peer-checked:block peer-checked:opacity-100 peer-checked:lg:hidden	"
+      >
+        <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col transition ">
           <ul className="mx-px bg-primary-midnight">
             {Object.entries(headerLinks).map(([name, url]) => {
               if (!name) {
@@ -33,6 +50,7 @@ export default function MobileMenu() {
                   <Link
                     href={url}
                     className="block border-b border-lines py-2 pl-4 "
+                    onClick={handleMobileMenuVisibility}
                   >
                     {name}
                   </Link>
