@@ -20,13 +20,13 @@ export default function MobileMenu() {
         >
           sam-carr
         </Link>
-        <label htmlFor="menu-toggle" className="block cursor-pointer p-4">
+        <label htmlFor="menuToggle" className="block cursor-pointer p-4">
           <Icon icon="hamburger-menu" className="lg:hidden" />
         </label>
       </nav>
       <input
         type="checkbox"
-        id="menu-toggle"
+        id="menuToggle"
         className="peer hidden"
         checked={visible}
         onClick={() => setVisible((oldState) => !oldState)}
