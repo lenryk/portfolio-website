@@ -1,10 +1,10 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 
-const Icon = ({ alt, icon, className, size }) => {
+const Icon = ({ alt, icon, className, size, rotate }) => {
   return (
     <Image
-      className={className}
+      className={`${className} transition-transform ${rotate && "rotate-90"}`}
       src={`/icons/${icon}.svg`}
       alt={alt}
       width={size}
