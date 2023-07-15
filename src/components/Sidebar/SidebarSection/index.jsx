@@ -2,7 +2,7 @@
 import Icon from "@/components/Icon";
 import { useState } from "react";
 
-export default function LinkTab({ title, children }) {
+export default function SidebarSection({ title, children }) {
   const [itemsVisible, setItemsVisible] = useState(false);
 
   return (

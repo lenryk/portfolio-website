@@ -1,16 +1,22 @@
-import ContactSidebar from "@/components/Contact/ContactSidebar";
+import ContactSidebar from "src/components/Sidebar/Contact";
 import Icon from "@/components/Icon";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
+import Sidebar from "@/components/Sidebar";
 
 export default function ContactMeSuccess() {
   return (
-    <section className="flex h-full">
-      <ContactSidebar />
+    <section className="flex h-full flex-col lg:flex-row">
+      <Sidebar>
+        <ContactSidebar />
+      </Sidebar>
       <div className="flex h-full w-full flex-col ">
-        <div className="flex h-[41px] w-full border-b border-lines">
-          <div className="flex h-[41px] w-fit items-center gap-[48px] border-r border-lines pl-3.5 pr-3 text-secondary-lynch">
-            contact-me.jsx <Icon icon="close" size={20} />
+        <div className="flex h-[41px] w-full border-b border-t border-lines lg:border-t-0">
+          <div
+            className="flex h-[41px] w-fit items-center gap-[48px]
+          border-r border-lines pl-3.5 pr-3 text-secondary-lynch"
+          >
+            success-message.jsx <Icon icon="close" size={20} />
           </div>
         </div>
         <div className="my-auto flex flex-col items-center">

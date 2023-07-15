@@ -7,7 +7,7 @@ export default function ContactForm() {
       netlify
       name="contact"
       action="/contact-me-success"
-      className="mx-auto flex h-full w-[372px] flex-col justify-center gap-6"
+      className="mx-auto my-10 flex h-full w-[372px] flex-col justify-center gap-6 px-8"
     >
       <Input type="text" label="name">
         _name:

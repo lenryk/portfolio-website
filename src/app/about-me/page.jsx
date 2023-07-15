@@ -2,7 +2,9 @@
 import Icon from "@/components/Icon";
 import CodeText from "@/components/CodeText";
 import Sidebar from "@/components/Sidebar";
-import LinkTab from "@/components/Sidebar/LinkTab";
+import SidebarSection from "@/components/Sidebar/SidebarSection";
+import SidebarLink from "@/components/Sidebar/SidebarLink";
+import Contact from "src/components/Sidebar/Contact";
 
 export default function AboutMe() {
   return (
@@ -12,40 +14,15 @@ export default function AboutMe() {
           _about-me
         </div>
         <div className="flex flex-col gap-[3px]">
-          <LinkTab title="file-explorer">
-            <div className="flex gap-[9px]">
-              <Icon icon="markdown" size={24} />
-              about-me.md
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="markdown" size={24} />
-              interests.md
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="markdown" size={24} />
-              experience.md
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="markdown" size={24} />
-              skills.md
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="pdf" size={24} />
-              cv-final(3).pdf
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="javascript" size={24} />
-              not-a-virus.js
-            </div>
-          </LinkTab>
-          <LinkTab title="contacts" className="bg-secondary">
-            <div className="flex gap-[9px]">
-              <Icon icon="mail" size={24} /> user@gmail.com
-            </div>
-            <div className="flex gap-[9px]">
-              <Icon icon="mail" size={24} /> +3598246359
-            </div>
-          </LinkTab>
+          <SidebarSection title="file-explorer">
+            <SidebarLink icon="markdown" name="about-me.md" />
+            <SidebarLink icon="markdown" name="interests.md" />
+            <SidebarLink icon="markdown" name="experience.md" />
+            <SidebarLink icon="markdown" name="skills.md" />
+            <SidebarLink icon="pdf" name="cv-final(3).pdf" />
+            <SidebarLink icon="javascript" name="not-a-virus.js" />
+          </SidebarSection>
+          <Contact />
         </div>
       </Sidebar>
 
