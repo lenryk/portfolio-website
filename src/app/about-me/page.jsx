@@ -67,8 +67,8 @@ export default function AboutMe() {
           </div>
         </div>
         <div
-          className="flex h-[41px] items-center gap-[11px] border-0
-        border-b border-lines bg-lines pt-[3px] lg:bg-primary-midnight"
+          className="mt-[3px] flex h-[41px] items-center gap-[11px]
+        border-0 border-b border-lines bg-lines lg:bg-primary-midnight"
         >
           <label
             htmlFor="toggleContacts"

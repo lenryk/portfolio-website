@@ -11,7 +11,7 @@ export default function MobileMenu() {
     <div className="">
       <nav
         className="flex h-[56px] min-h-[56px] flex-wrap justify-between
-    border-b border-solid border-lines text-secondary-lynch lg:hidden"
+    overflow-clip border-b border-solid border-lines text-secondary-lynch lg:hidden"
       >
         <Link
           id="name"
@@ -32,11 +32,11 @@ export default function MobileMenu() {
         onClick={() => setVisible((oldState) => !oldState)}
       />
       <div
-        className="invisible relative z-40 h-full opacity-10 transition-opacity
+        className="invisible relative z-40 min-h-full opacity-10 transition-opacity
       duration-300 peer-checked:visible peer-checked:opacity-100 peer-checked:lg:hidden"
       >
-        <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col transition ">
-          <ul className="mx-px bg-primary-midnight">
+        <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col transition">
+          <ul className="relative z-40 mx-px min-h-full bg-primary-midnight">
             {Object.entries(headerLinks).map(([name, url]) => {
               if (!name) {
                 return null;
@@ -45,7 +45,7 @@ export default function MobileMenu() {
                 <li key={url}>
                   <Link
                     href={url}
-                    className="block border-b border-lines py-2 pl-4 "
+                    className="block border-b border-lines bg-primary-midnight px-6 py-5"
                     onClick={() => setVisible(false)}
                   >
                     {name}
@@ -53,8 +53,8 @@ export default function MobileMenu() {
                 </li>
               );
             })}
+            <li className="mx-px min-h-[999%] bg-primary-midnight " />
           </ul>
-          <div className="mx-px min-h-full bg-primary-midnight " />
         </div>
       </div>
     </div>
