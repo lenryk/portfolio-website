@@ -1,4 +1,4 @@
-import ContactSidebar from "src/components/Sidebar/Contact";
+import ContactSidebar from "src/components/Sidebar/ContactSidebar";
 import Icon from "@/components/Icon";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";

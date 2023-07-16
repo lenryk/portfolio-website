@@ -14,7 +14,7 @@ export default async function Projects() {
   const data = await getData();
 
   return (
-    <section className="flex h-full">
+    <section className="flex h-full flex-col lg:flex-row">
       <ProjectsContainer data={data} />
     </section>
   );

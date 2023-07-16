@@ -7,10 +7,7 @@ import OtherProfiles from "@/components/Sidebar/OtherProfiles";
 export default function ContactMe() {
   return (
     <section className="flex h-full flex-col lg:flex-row">
-      <Sidebar>
-        <div className="border-b border-lines py-5 pl-6 lg:hidden">
-          _contact-me
-        </div>
+      <Sidebar name="_contact-me">
         <div className="flex flex-col gap-[3px]">
           <ContactSidebar />
           <OtherProfiles />

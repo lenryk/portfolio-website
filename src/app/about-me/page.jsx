@@ -35,11 +35,8 @@ export default function AboutMe() {
   }
 
   return (
-    <section className="flex h-full flex-col lg:flex-row">
-      <Sidebar>
-        <div className="border-b border-lines py-5 pl-6 lg:hidden">
-          _about-me
-        </div>
+    <div className="flex h-full flex-col lg:flex-row">
+      <Sidebar name="_about-me">
         <div className="flex flex-col gap-[3px]">
           <SidebarSection title="file-explorer">
             <SidebarLink
@@ -73,7 +70,7 @@ export default function AboutMe() {
         </div>
       </Sidebar>
 
-      <div className="flex basis-full flex-col lg:flex-row">
+      <section className="flex basis-full flex-col lg:flex-row">
         <div className="mb-5 basis-3/6 border-0 border-r border-lines lg:mb-0">
           <div className="flex h-[41px] border-b border-t border-lines lg:border-t-0">
             <div className="flex items-center border-r border-lines pl-6 pr-3 text-secondary-lynch lg:pl-3.5">
@@ -94,7 +91,7 @@ export default function AboutMe() {
           </div>
           <CodeText isLoading={readMeIsLoading}>{readmeData}</CodeText>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 
-const Icon = ({ alt, icon, className, size, rotate }) => {
+const Icon = ({ alt, icon, className, size, rotate, ...rest }) => {
   return (
     <Image
       className={`${className} transition-transform ${rotate && "rotate-90"}`}
@@ -9,6 +9,7 @@ const Icon = ({ alt, icon, className, size, rotate }) => {
       alt={alt}
       width={size}
       height={size}
+      {...rest}
     />
   );
 };

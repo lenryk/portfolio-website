@@ -7,8 +7,8 @@ export default function Input({ type, label, children }) {
       {type === "textarea" ? (
         <textarea
           className="h-[145px] resize-none rounded-lg border
-          border-lines bg-primary-blue-charcoal p-4
-          text-secondary-lynch focus:outline-none"
+          border-lines bg-primary-blue-charcoal p-4 text-secondary-lynch
+          outline-none focus:border-secondary-lynch focus:outline-1"
           id={label}
           required
         />
@@ -16,7 +16,7 @@ export default function Input({ type, label, children }) {
         <input
           className="h-[41px] rounded-lg border border-lines
           bg-primary-blue-charcoal pl-4 text-secondary-lynch
-          outline-secondary-lynch focus:outline-none focus:outline "
+          outline-none focus:border-secondary-lynch focus:outline-1"
           id={label}
           type={type}
           required

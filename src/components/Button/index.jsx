@@ -10,7 +10,7 @@ export default function Button({
 }) {
   const combinedClasses = clsx(
     className,
-    "w-fit rounded-lg px-3.5 py-2.5 cursor-pointer text-sm",
+    "w-fit rounded-lg px-3 lg:px-3.5 py-2.5 cursor-pointer text-sm",
     {
       [`bg-button-primary hover:bg-button-primary-hover`]: preset === "primary",
       [`bg-button-ghost outline-2 outline outline-secondary hover:outline-secondary/50`]:

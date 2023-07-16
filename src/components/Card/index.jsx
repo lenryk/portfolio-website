@@ -11,7 +11,7 @@ export default function Card({ name, metadata }) {
         </span>
         <span className="text-secondary-lynch"> // _{name}</span>
       </p>
-      <div className="flex w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
+      <div className="flex max-w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
         <div className="border-1 relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
           <div className="absolute bottom-0 left-0 mb-2 ml-2 flex gap-2">
             {metadata.icons.map((icon) => {

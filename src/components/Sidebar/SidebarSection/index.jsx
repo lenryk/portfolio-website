@@ -43,7 +43,7 @@ export default function SidebarSection({ title, children }) {
         onClick={() => setItemsVisible((oldState) => !oldState)}
       />
       {itemsVisible && (
-        <div className="flex-col gap-[8px] border-0 border-lines py-6 pl-6 lg:border-b">
+        <div className="flex flex-col gap-[11px] border-0 border-lines py-6 pl-6 lg:border-b">
           {children}
         </div>
       )}
