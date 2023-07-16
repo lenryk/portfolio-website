@@ -1,4 +1,4 @@
-import ProjectsContainer from "@/components/ProjectsContainer";
+import ProjectsContainer from "src/containers/ProjectsContainer";
 
 async function getData() {
   const res = await fetch(`${process.env.url}/api/projects`);

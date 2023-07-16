@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <nav
-      className="hidden h-[56px] min-h-[56px]
+      className="hidden h-[56px] min-h-[56px] select-none
     justify-between border-b border-solid border-lines text-secondary-lynch lg:flex"
     >
       <Link

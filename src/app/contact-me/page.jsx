@@ -1,7 +1,7 @@
 import Icon from "@/components/Icon";
 import ContactForm from "src/components/ContactForm";
 import Sidebar from "@/components/Sidebar";
-import Contact from "src/components/Sidebar/Contact";
+import ContactSidebar from "src/components/Sidebar/ContactSidebar";
 import OtherProfiles from "@/components/Sidebar/OtherProfiles";
 
 export default function ContactMe() {
@@ -12,7 +12,7 @@ export default function ContactMe() {
           _contact-me
         </div>
         <div className="flex flex-col gap-[3px]">
-          <Contact />
+          <ContactSidebar />
           <OtherProfiles />
         </div>
       </Sidebar>

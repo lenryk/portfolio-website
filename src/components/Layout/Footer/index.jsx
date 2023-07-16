@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer
-      className="relative z-40 flex max-h-[56px] min-h-[56px]
+      className="relative z-40 flex max-h-[56px] min-h-[56px] select-none
      rounded-lg rounded-t-none border border-lines text-secondary-lynch"
     >
       <div

@@ -8,8 +8,8 @@ export default function SidebarSection({ title, children }) {
   return (
     <>
       <div
-        className="flex h-[41px] items-center gap-[11px]
-        border-0 border-b border-lines bg-lines lg:bg-primary-midnight"
+        className="flex h-[41px] select-none items-center
+        gap-[11px] border-0 border-b border-lines bg-lines lg:bg-primary-midnight"
       >
         <label htmlFor={title} className="flex cursor-pointer gap-[11px] pl-4">
           <Icon
