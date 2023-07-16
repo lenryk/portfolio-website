@@ -3,28 +3,26 @@ export async function GET() {
   const projects = {
     portfolio: {
       id: 1,
-      coverImage: "portfolioWebsite.jpg",
       url: "https://samcarr.co.uk",
-      githubUrl: "https://www.github.com/something",
-      text: "Portfolio website (the one you are currently on!)",
+      githubUrl: "https://github.com/lenryk/portfolio-website",
+      text: "My portfolio website (the one you are currently on!)",
       icons: ["react", "next.js", "netlify", "tailwind"],
     },
-    gatsby: {
+    "more-coming-soon": {
       id: 2,
-      coverImage: "",
-      url: "https://samcarr.co.uk",
-      githubUrl: "https://www.github.com/something",
-      text: "Im test text to see what this would look like in the future",
+      url: "#",
+      githubUrl: "#",
+      text: "Currently in the process of making a range of different projects, so be sure to come back soon!",
       icons: ["react", "next.js"],
     },
-    react: {
-      id: 3,
-      coverImage: "",
-      url: "https://samcarr.co.uk",
-      githubUrl: "https://www.github.com/something",
-      text: "Another amazing project but with more filler text",
-      icons: ["netlify", "tailwind"],
-    },
+    // react: {
+    //   id: 3,
+    //   image: "portfolio-homepage.jpg",
+    //   url: "https://samcarr.co.uk",
+    //   githubUrl: "https://www.github.com/something",
+    //   text: "Another amazing project but with more filler text",
+    //   icons: ["netlify", "tailwind"],
+    // },
   };
 
   return NextResponse.json(projects);

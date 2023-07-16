@@ -10,8 +10,6 @@ export async function GET(request) {
   };
   const params = request.nextUrl.searchParams;
 
-  console.log(params.get("page"), mdData[params.get("page")]);
-
   if (mdData[params.get("page")]) {
     return NextResponse.json({
       article: mdData[params.get("page")],

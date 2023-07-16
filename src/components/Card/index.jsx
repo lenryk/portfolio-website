@@ -1,8 +1,16 @@
 import Button from "@/components/Button";
 import Icon from "@/components/Icon";
 import { clsx } from "clsx";
+import Image from "next/image";
+import PortfolioCover from "../../../public/assets/images/portfolio-homepage.jpg";
+import MoreComingSoon from "../../../public/assets/images/loading.jpg";
 
 export default function Card({ name, metadata }) {
+  const coverImages = {
+    portfolio: PortfolioCover,
+    "more-coming-soon": MoreComingSoon,
+  };
+
   return (
     <div>
       <p className="mb-3.5">
@@ -13,6 +21,12 @@ export default function Card({ name, metadata }) {
       </p>
       <div className="flex max-w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
         <div className="border-1 relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
+          <Image
+            src={coverImages[name]}
+            alt={`project-${name}`}
+            fill
+            className="bg-contain"
+          />
           <div className="absolute bottom-0 left-0 mb-2 ml-2 flex gap-2">
             {metadata.icons.map((icon) => {
               const iconBackground = clsx("rounded-sm p-1", {

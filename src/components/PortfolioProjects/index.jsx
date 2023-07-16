@@ -1,11 +1,9 @@
-"use client";
 import Card from "@/components/Card";
 
 export default function PortfolioProjects({ projects }) {
-  console.log("projects in the component are", projects);
   return (
     <div className="flex h-full flex-wrap items-center justify-center gap-10 p-6">
-      {Object.entries(projects).map(([name, metadata]) => (
+      {Object.entries(projects ?? {}).map(([name, metadata]) => (
         <Card key={metadata.id} name={name} metadata={metadata} />
       ))}
     </div>
