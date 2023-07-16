@@ -1,9 +1,23 @@
 "use client";
 import Icon from "@/components/Icon";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
-  const [itemsVisible, setItemsVisible] = useState(false);
+  const [itemsVisible, setItemsVisible] = useState(
+    () => window.innerWidth >= 1024
+  );
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setItemsVisible(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <>
