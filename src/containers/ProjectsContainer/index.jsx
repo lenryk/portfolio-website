@@ -4,125 +4,55 @@ import Filters from "@/components/Filters";
 import PortfolioProjects from "@/components/PortfolioProjects";
 import Sidebar from "@/components/Sidebar";
 import SidebarSection from "@/components/Sidebar/SidebarSection";
-import { useReducer } from "react";
-
-function reducer(state, action) {
-  // console.log(state, action);
-  switch (action.type) {
-    case "setEnabledFilters": {
-      return {
-        ...state,
-        enabledFilters: action.newEnabledFilters,
-      };
-    }
-    case "setProjects": {
-      return {
-        ...state,
-        projects: action.newProjects,
-      };
-    }
-    case "setFilters": {
-      return {
-        ...state,
-        filters: action.newFilters,
-      };
-    }
-    case "setState": {
-      return action.newState;
-    }
-    default:
-      return state;
-  }
-}
+import { useEffect, useState } from "react";
 
 export default function ProjectsContainer({ data }) {
-  const [state, dispatch] = useReducer(reducer, {
-    projects: data,
-    enabledFilters: [],
-    filters: {
-      react: false,
-      "next.js": false,
-      netlify: false,
-      tailwind: false,
-    },
+  const [projects, setProjects] = useState(data);
+  const [enabledFilters, setEnabledFilters] = useState([]);
+  const [filters, setFilters] = useState({
+    react: false,
+    "next.js": false,
+    netlify: false,
+    tailwind: false,
   });
 
-  function handleFilters(filters) {
-    console.log("updated filters are", filters);
-
-    dispatch({
-      type: "setState",
-      newState: {
-        newEnabledFilters: ["react"],
-        newFilters: filters,
-        newProjects: Object.fromEntries(
-          Object.entries(data).filter(([_, metadata]) =>
-            metadata.icons.some((element) => {
-              return state.enabledFilters.includes(element);
-            })
-          )
-        ),
-      },
-    });
-
-    console.log(
+  useEffect(() => {
+    setEnabledFilters(
       Object.entries(filters)
         .map(([name, checked]) => {
           if (checked) return name;
         })
         .filter((tech) => tech)
     );
+  }, [filters]);
 
-    // dispatch({
-    //   type: "setEnabledFilters",
-    //   newEnabledFilters: Object.entries(filters)
-    //     .map(([name, checked]) => {
-    //       if (checked) return name;
-    //     })
-    //     .filter((tech) => tech),
-    // });
-    //
-    // dispatch({
-    //   type: "setFilters",
-    //   newFilters: filters,
-    // });
-
-    console.log("enabledFilters", state.enabledFilters);
-    console.log("new state after update is", state);
-
-    if (state.enabledFilters.length < 1) {
-      dispatch({ type: "setProjects", newProjects: data });
+  useEffect(() => {
+    if (enabledFilters.length < 1) {
+      setProjects(data);
+      return;
     }
 
-    // dispatch({
-    //   type: "setProjects",
-    //   newProjects: Object.fromEntries(
-    //     Object.entries(data).filter(([_, metadata]) =>
-    //       metadata.icons.some((element) => {
-    //         return state.enabledFilters.includes(element);
-    //       })
-    //     )
-    //   ),
-    // });
+    setProjects(
+      Object.fromEntries(
+        Object.entries(data).filter(([_, metadata]) =>
+          metadata.icons.some((element) => {
+            return enabledFilters.includes(element);
+          })
+        )
+      )
+    );
+  }, [data, enabledFilters]);
+
+  function handleFilters(filters) {
+    setFilters(filters);
   }
 
   function resetFilters() {
-    dispatch({
-      type: "setProjects",
-      newProjects: data,
-    });
-    dispatch({
-      type: "setFilters",
-      newFilters: {
-        react: false,
-        "next.js": false,
-        netlify: false,
-        tailwind: false,
-      },
-    });
-    dispatch({
-      type: "setEnabledFilters",
-      newEnabledFilters: [],
+    setFilters({
+      react: false,
+      "next.js": false,
+      netlify: false,
+      tailwind: false,
     });
   }
 
@@ -130,7 +60,7 @@ export default function ProjectsContainer({ data }) {
     <>
       <Sidebar name="_projects">
         <SidebarSection title="tech-filter">
-          <Filters handleFilters={handleFilters} filters={state.filters} />
+          <Filters handleFilters={handleFilters} filters={filters} />
         </SidebarSection>
       </Sidebar>
       <section className="flex w-full flex-col">
@@ -139,9 +69,7 @@ export default function ProjectsContainer({ data }) {
             className="flex w-fit items-center gap-[48px]
           border-r border-lines p-3.5 text-secondary-lynch lg:h-[41px]"
           >
-            {state.enabledFilters.length < 1
-              ? "all"
-              : state.enabledFilters.join("; ")}
+            {enabledFilters.length < 1 ? "all" : enabledFilters.join("; ")}
             {";"}
             <Icon
               icon="close"
@@ -151,7 +79,7 @@ export default function ProjectsContainer({ data }) {
             />
           </div>
         </div>
-        <PortfolioProjects projects={state.projects} />
+        <PortfolioProjects projects={projects} />
       </section>
     </>
   );
