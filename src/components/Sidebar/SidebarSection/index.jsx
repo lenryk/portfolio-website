@@ -3,13 +3,23 @@ import Icon from "@/components/Icon";
 import { useEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
-  const [itemsVisible, setItemsVisible] = useState(
-    () => window.innerWidth >= 1024
-  );
+  const [itemsVisible, setItemsVisible] = useState(() => {
+    if (window ?? null) {
+      return window.innerWidth >= 1024;
+    } else {
+      return 0;
+    }
+  });
 
   useEffect(() => {
     const handleWindowResize = () => {
-      setItemsVisible(window.innerWidth >= 1024);
+      setItemsVisible(() => {
+        if (window ?? null) {
+          return window.innerWidth >= 1024;
+        } else {
+          return 0;
+        }
+      });
     };
 
     window.addEventListener("resize", handleWindowResize);
