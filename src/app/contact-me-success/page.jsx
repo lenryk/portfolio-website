@@ -3,12 +3,16 @@ import Icon from "@/components/Icon";
 import Heading from "@/components/Heading";
 import Button from "@/components/Button";
 import Sidebar from "@/components/Sidebar";
+import OtherProfiles from "@/components/Sidebar/OtherProfiles";
 
 export default function ContactMeSuccess() {
   return (
     <section className="flex h-full flex-col lg:flex-row">
       <Sidebar>
-        <ContactSidebar />
+        <div className="flex flex-col gap-[3px]">
+          <ContactSidebar />
+          <OtherProfiles />
+        </div>
       </Sidebar>
       <div className="flex h-full w-full flex-col ">
         <div className="flex h-[41px] w-full border-b border-t border-lines lg:border-t-0">

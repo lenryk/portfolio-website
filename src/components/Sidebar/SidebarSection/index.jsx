@@ -3,8 +3,13 @@ import Icon from "@/components/Icon";
 import { useEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
+  const [isSSR, setIsSSR] = useState(true);
+  useEffect(() => {
+    setIsSSR(false);
+  }, []);
+
   const [itemsVisible, setItemsVisible] = useState(() => {
-    if (typeof window !== "undefined") {
+    if (!isSSR) {
       return window.innerWidth >= 1024;
     } else {
       return 0;
@@ -14,7 +19,7 @@ export default function SidebarSection({ title, children }) {
   useEffect(() => {
     const handleWindowResize = () => {
       setItemsVisible(() => {
-        if (typeof window !== "undefined") {
+        if (!isSSR) {
           return window.innerWidth >= 1024;
         } else {
           return 0;
@@ -27,7 +32,7 @@ export default function SidebarSection({ title, children }) {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, []);
+  }, [isSSR]);
 
   return (
     <>
@@ -52,11 +57,11 @@ export default function SidebarSection({ title, children }) {
         checked={setItemsVisible}
         onClick={() => setItemsVisible((oldState) => !oldState)}
       />
-      {itemsVisible && (
+      {itemsVisible ? (
         <div className="flex flex-col gap-[11px] border-0 border-lines py-6 pl-6 lg:border-b">
           {children}
         </div>
-      )}
+      ) : null}
     </>
   );
 }
