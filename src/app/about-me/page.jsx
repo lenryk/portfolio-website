@@ -7,14 +7,7 @@ import CodeText from "@/components/CodeText";
 import useSWR from "swr";
 import { useState } from "react";
 import articles from "@/markdown/content";
-import dynamic from "next/dynamic";
-
-const SidebarSection = dynamic(
-  () => import("@/components/Sidebar/SidebarSection"),
-  {
-    ssr: false,
-  }
-);
+import SidebarSection from "@/components/Sidebar/SidebarSection";
 
 export default function AboutMe() {
   const [page, setPage] = useState("about-me");

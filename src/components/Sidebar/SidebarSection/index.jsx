@@ -1,11 +1,26 @@
 "use client";
 import Icon from "@/components/Icon";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
-  const [itemsVisible, setItemsVisible] = useState(
-    () => window.innerWidth >= 1024
-  );
+  const [isClient, setIsClient] = useState(false);
+
+  useLayoutEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const [itemsVisible, setItemsVisible] = useState(() => {
+    if (isClient) {
+      return window.innerWidth >= 1024;
+    }
+    return false;
+  });
+
+  useLayoutEffect(() => {
+    if (isClient) {
+      setItemsVisible(window.innerWidth >= 1024);
+    }
+  }, [isClient]);
 
   useEffect(() => {
     function handleWindowResize() {
@@ -39,7 +54,7 @@ export default function SidebarSection({ title, children }) {
         type="checkbox"
         id={title}
         className="hidden"
-        checked={setItemsVisible}
+        checked={itemsVisible}
         onClick={() => setItemsVisible((oldState) => !oldState)}
       />
       {itemsVisible ? (
