@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
   const [itemsVisible, setItemsVisible] = useState(() => {
-    if (window ?? null) {
+    if (typeof window !== "undefined") {
       return window.innerWidth >= 1024;
     } else {
       return 0;
@@ -14,7 +14,7 @@ export default function SidebarSection({ title, children }) {
   useEffect(() => {
     const handleWindowResize = () => {
       setItemsVisible(() => {
-        if (window ?? null) {
+        if (typeof window !== "undefined") {
           return window.innerWidth >= 1024;
         } else {
           return 0;
