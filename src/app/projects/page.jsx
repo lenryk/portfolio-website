@@ -1,11 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 import Sidebar from "@/components/Sidebar";
-import SidebarSection from "@/components/Sidebar/SidebarSection";
 import Filters from "@/components/Filters";
 import Icon from "@/components/Icon";
 import PortfolioProjects from "@/components/PortfolioProjects";
 import useSWR from "swr";
+import dynamic from "next/dynamic";
+
+const SidebarSection = dynamic(
+  () => import("@/components/Sidebar/SidebarSection"),
+  {
+    ssr: false,
+  }
+);
 
 export default function Projects() {
   async function fetcher(url) {

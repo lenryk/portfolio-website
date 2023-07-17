@@ -3,36 +3,21 @@ import Icon from "@/components/Icon";
 import { useEffect, useState } from "react";
 
 export default function SidebarSection({ title, children }) {
-  const [isSSR, setIsSSR] = useState(true);
-  useEffect(() => {
-    setIsSSR(false);
-  }, []);
+  const [itemsVisible, setItemsVisible] = useState(
+    () => window.innerWidth >= 1024
+  );
 
-  const [itemsVisible, setItemsVisible] = useState(() => {
-    if (!isSSR) {
-      return window.innerWidth >= 1024;
-    } else {
-      return 0;
+  useEffect(() => {
+    function handleWindowResize() {
+      setItemsVisible(window.innerWidth >= 1024);
     }
-  });
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setItemsVisible(() => {
-        if (!isSSR) {
-          return window.innerWidth >= 1024;
-        } else {
-          return 0;
-        }
-      });
-    };
 
     window.addEventListener("resize", handleWindowResize);
 
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }, [isSSR]);
+  });
 
   return (
     <>

@@ -1,5 +1,12 @@
-import SidebarSection from "@/components/Sidebar/SidebarSection";
 import SidebarLink from "@/components/Sidebar/SidebarLink";
+import dynamic from "next/dynamic";
+
+const SidebarSection = dynamic(
+  () => import("@/components/Sidebar/SidebarSection"),
+  {
+    ssr: false,
+  }
+);
 
 export default function OtherProfiles() {
   return (
