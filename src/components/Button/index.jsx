@@ -22,7 +22,12 @@ export default function Button({
   const Element = as === "link" ? Link : as ? as : "div";
 
   return (
-    <Element className={combinedClasses} href={href} {...rest}>
+    <Element
+      className={combinedClasses}
+      href={href}
+      target={Link ? "_blank" : null}
+      {...rest}
+    >
       <span className={preset === "primary" && "text-primary"}>{children}</span>
     </Element>
   );

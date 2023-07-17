@@ -1,5 +1,7 @@
 "use client";
 import PropTypes from "prop-types";
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 export default function CodeText({ children, isLoading }) {
   const length = 16;
 
@@ -28,7 +30,7 @@ export default function CodeText({ children, isLoading }) {
             <span className="sr-only">Loading...</span>
           </div>
         ) : (
-          children?.article
+          <ReactMarkdown rehypePlugins={rehypeRaw}>{children}</ReactMarkdown>
         )}
       </div>
     </article>

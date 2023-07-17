@@ -7,6 +7,7 @@ import Icon from "@/components/Icon";
 import CodeText from "@/components/CodeText";
 import useSWR from "swr";
 import { useState } from "react";
+import articles from "@/markdown/content";
 
 export default function AboutMe() {
   const [page, setPage] = useState("about-me");
@@ -43,28 +44,31 @@ export default function AboutMe() {
               icon="markdown"
               name="about-me.md"
               onClick={handleClick}
+              page={page}
             />
             <SidebarLink
               icon="markdown"
               name="interests.md"
               onClick={handleClick}
+              page={page}
             />
             <SidebarLink
               icon="markdown"
               name="experience.md"
               onClick={handleClick}
+              page={page}
             />
             <SidebarLink
               icon="markdown"
               name="skills.md"
               onClick={handleClick}
+              page={page}
             />
             <SidebarLink
               icon="pdf"
               name="cv-final(3).pdf"
               url="http://google.com"
             />
-            <SidebarLink icon="javascript" name="not-a-virus.js" />
           </SidebarSection>
           <ContactSidebar />
         </div>
@@ -79,7 +83,7 @@ export default function AboutMe() {
             <div className="border-b border-lines" />
           </div>
           <CodeText isLoading={fileExplorerIsLoading}>
-            {fileExplorerData}
+            {articles["about-me"]}
           </CodeText>
         </div>
         <div className="mb-5 basis-3/6 lg:mb-0">

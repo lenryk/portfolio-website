@@ -4,8 +4,11 @@ import SidebarLink from "@/components/Sidebar/SidebarLink";
 export default function Contact() {
   return (
     <SidebarSection title="contacts" className="bg-secondary">
-      <SidebarLink icon="mail" name="sam@gmail.com" />
-      <SidebarLink icon="mail" name="+3598246359" />
+      <SidebarLink
+        icon="mail"
+        name="hi@samcarr.co.uk"
+        url="mailto:hi@samcarr.co.uk"
+      />
     </SidebarSection>
   );
 }

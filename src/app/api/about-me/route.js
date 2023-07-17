@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request) {
   const mdData = {
-    "about-me": "Hey everyone i'm sam!",
+    "about-me": `Hello world!\n this text should have spaces \n`,
     interests: "I love computers and lots of other filler",
     experience: "I hve lots of dev experience and filler",
     skills: "much corporate skills much wow",
