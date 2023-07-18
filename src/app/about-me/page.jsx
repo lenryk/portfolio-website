@@ -4,32 +4,12 @@ import SidebarLink from "@/components/Sidebar/SidebarLink";
 import ContactSidebar from "@/components/Sidebar/ContactSidebar";
 import Icon from "@/components/Icon";
 import CodeText from "@/components/CodeText";
-import useSWR from "swr";
 import { useState } from "react";
 import articles from "@/markdown/content";
 import SidebarSection from "@/components/Sidebar/SidebarSection";
 
 export default function AboutMe() {
   const [page, setPage] = useState("about-me");
-
-  async function fetcher(url) {
-    try {
-      const response = await fetch(url);
-      return await response.json();
-    } catch (e) {
-      throw new Error(e);
-    }
-  }
-
-  const { data: fileExplorerData, isLoading: fileExplorerIsLoading } = useSWR(
-    `/api/about-me?page=${page}`,
-    fetcher
-  );
-
-  const { data: readmeData, isLoading: readMeIsLoading } = useSWR(
-    `/api/about-me?page=readme`,
-    fetcher
-  );
 
   function handleClick(event) {
     setPage(event.target.id);
@@ -67,7 +47,7 @@ export default function AboutMe() {
             <SidebarLink
               icon="pdf"
               name="cv-final(3).pdf"
-              url="http://google.com"
+              url="/sam-carr-cv.pdf"
             />
           </SidebarSection>
           <ContactSidebar />
@@ -75,25 +55,23 @@ export default function AboutMe() {
       </Sidebar>
 
       <section className="flex basis-full flex-col lg:flex-row">
-        <div className="mb-5 basis-3/6 border-0 border-r border-lines lg:mb-0">
+        <div className="basis-3/6 border-0 border-r border-lines lg:mb-0">
           <div className="flex h-[41px] border-b border-t border-lines lg:border-t-0">
             <div className="flex items-center border-r border-lines pl-6 pr-3 text-secondary-lynch lg:pl-3.5">
               {page}.md <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="border-b border-lines" />
           </div>
-          <CodeText isLoading={fileExplorerIsLoading}>
-            {articles["about-me"]}
-          </CodeText>
+          <CodeText>{articles[page]}</CodeText>
         </div>
-        <div className="mb-5 basis-3/6 lg:mb-0">
+        <div className="basis-3/6 lg:mb-0">
           <div className="flex h-[41px] border-b border-t border-lines lg:border-t-0">
             <div className="flex items-center border-r border-lines pl-6 pr-3 text-secondary-lynch lg:pl-3.5">
-              README.txt <Icon className="ml-7" icon="close" size={20} />
+              README.md <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="h-[41px] border-b border-lines" />
           </div>
-          <CodeText isLoading={readMeIsLoading}>{readmeData}</CodeText>
+          <CodeText>{articles["readme"]}</CodeText>
         </div>
       </section>
     </div>

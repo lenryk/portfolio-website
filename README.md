@@ -1,38 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## My Portfolio Website 
 
-## Getting Started
+![portfolio website cover image](https://raw.githubusercontent.com/lenryk/portfolio-website/main/public/assets/images/portfolio-homepage.jpg)
 
-First, run the development server:
+This website was built by me [@lenryk](https://github.com/lenryk) from the ground up using Next.js and Tailwind.
+
+Although I built this website myself, I didn’t design it. The design for this website came from the Figma community by the user [@darelova](https://www.figma.com/@darelova).
+
+>Pro Tip: You can find plenty of free community designs for websites and new projects on the [Figma community](https://www.figma.com/community)
+
+I tweaked the design for my own needs, but the main inspiration came from [@darelova](https://www.figma.com/@darelova) and their great work. So hats off to you, and I hope you design many more cool layouts in the future!
+
+## FAQ
+
+### Why Next.js?
+
+Mainly for serverside rendering (SSR) and its built-in page router.
+
+### Why Tailwind?
+
+Originally I was going to use Styled Components but since it’s not supported for SSR in Next.js 13 I switched to Tailwind.
+
+### Can I use this for my own site?
+
+Sure - would love it if you could give me a mention or shout-out.
+
+### How did you make that cool face from text?
+
+I manually changed the colour of every letter until it resembled my face...
+
+Just kidding! It uses a background image clip CSS property that sets the colours on the text. Just make sure you have an image with a transparent background for the best results.
+
+[View the code here for more details](https://github.com/lenryk/portfolio-website/blob/main/src/app/globals.css#L5)
+
+### How do I run this locally?
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
+Open `localhost:3000`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### How long did it take to build?
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+The main site and responsiveness design took around 4 days of work but then there were plenty of little tweaks and animations I worked in after. 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Even now it's still an ongoing project and will probably never be truly “finished”.

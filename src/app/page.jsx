@@ -23,7 +23,12 @@ export default function Home() {
             <Button className="mt-4" as="link" href="/projects">
               view projects
             </Button>
-            <Button preset="primary" className="mt-4">
+            <Button
+              preset="primary"
+              className="mt-4"
+              as="link"
+              href="/sam-carr-cv.pdf"
+            >
               download CV
             </Button>
           </div>
