@@ -4,11 +4,13 @@ import { clsx } from "clsx";
 import Image from "next/image";
 import PortfolioCover from "../../../public/assets/images/portfolio-homepage.jpg";
 import MoreComingSoon from "../../../public/assets/images/loading.jpg";
+import CashAppCover from "../../../public/assets/images/cash-app-project.jpg";
 
 export default function Card({ name, metadata }) {
   const coverImages = {
     portfolio: PortfolioCover,
     "more-coming-soon": MoreComingSoon,
+    "cash-app": CashAppCover,
   };
 
   return (
@@ -34,6 +36,9 @@ export default function Card({ name, metadata }) {
                 "bg-button-hover": icon === "next.js",
                 "bg-accent-tonys-pink": icon === "netlify",
                 "bg-secondary-indigo": icon === "tailwind",
+                "bg-primary-blue-charcoal": icon === "gatsby",
+                "bg-lines": icon === "styled",
+                "bg-button-primary": icon === "typescript",
               });
 
               return (

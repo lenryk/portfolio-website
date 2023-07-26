@@ -21,12 +21,17 @@ export default function Projects() {
 
   const [projects, setProjects] = useState(projectsData);
   const [enabledFilters, setEnabledFilters] = useState([]);
-  const [filters, setFilters] = useState({
+  const defaultFilters = {
     react: false,
     "next.js": false,
     netlify: false,
     tailwind: false,
-  });
+    gatsby: false,
+    styled: false,
+    typescript: false,
+  };
+
+  const [filters, setFilters] = useState(defaultFilters);
 
   useEffect(() => {
     setEnabledFilters(
@@ -60,12 +65,7 @@ export default function Projects() {
   }
 
   function resetFilters() {
-    setFilters({
-      react: false,
-      "next.js": false,
-      netlify: false,
-      tailwind: false,
-    });
+    setFilters(defaultFilters);
   }
 
   return (
