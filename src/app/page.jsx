@@ -13,11 +13,11 @@ export default function Home() {
           <Heading
             size="h2"
             className="pt-2 text-secondary-indigo"
-          >{`> Fullstack developer`}</Heading>
+          >{`> Full Stack Developer`}</Heading>
         </div>
         <div className="text-secondary-lynch">
           <p>// welcome to my portfolio website</p>
-          <p>// be sure to checkout out my projects</p>
+          <p>// be sure to check out out my projects</p>
           <p>// contact me if you have any questions</p>
           <div className="flex gap-4">
             <Button className="mt-4" as="link" href="/projects">

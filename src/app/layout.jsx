@@ -9,7 +9,7 @@ const firaCode = Fira_Code({
 });
 
 export const metadata = {
-  title: "Sam Carr - Fullstack Software Engineer - UK",
+  title: "Sam Carr - Full Stack Software Engineer - UK",
   description:
     "This website was created with Next.js + Tailwind. Check my Github for the full source code.",
 };
