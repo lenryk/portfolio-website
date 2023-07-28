@@ -91,7 +91,11 @@ export default function Projects() {
             />
           </div>
         </div>
-        <PortfolioProjects projects={projects} />
+        {projects ? (
+          <PortfolioProjects projects={projects} />
+        ) : (
+          <Icon icon="loader-2" className="m-auto animate-spin" />
+        )}
       </section>
     </section>
   );
