@@ -28,6 +28,8 @@ export default function Card({ name, metadata }) {
             alt={`project-${name}`}
             fill
             className="bg-contain"
+            placeholder="blur"
+            priority
           />
           <div className="absolute bottom-0 left-0 mb-2 ml-2 flex gap-2">
             {metadata.icons.map((icon) => {
