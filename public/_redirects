@@ -1,9 +1,3 @@
 # Proxy the Heardle main app pages
-/heardle    https://heardle-mauve.vercel.app  200
-/heardle/*  https://heardle-mauve.vercel.app/:splat  200
-
-# Heardle's Next.js static assets (scoped to /heardle)
-#/heardle/_next/* proxies to Vercel's _next
-/heardle/_next/*     https://heardle-mauve.vercel.app/_next/:splat  200
-/heardle/static/*    https://heardle-mauve.vercel.app/static/:splat  200
-/heardle/assets/*    https://heardle-mauve.vercel.app/assets/:splat  200
+/heardle/* https://heardle-mauve.vercel.app/:splat 200
+/heardle https://heardle-mauve.vercel.app/ 200
