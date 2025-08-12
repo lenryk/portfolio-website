@@ -1,1 +1,14 @@
+# Proxy the Heardle main app pages
 /heardle/*  https://heardle-mauve.vercel.app/:splat  200
+
+# Handle Next.js static assets (served from the root on Vercel)
+/_heardle/_next/*  https://heardle-mauve.vercel.app/_next/:splat  200
+/_next/*           https://heardle-mauve.vercel.app/_next/:splat  200
+
+# Handle Next.js public/static files
+/heardle/static/*  https://heardle-mauve.vercel.app/static/:splat  200
+/static/*          https://heardle-mauve.vercel.app/static/:splat  200
+
+# Handle any other asset folders (images, fonts, etc.)
+/heardle/assets/*  https://heardle-mauve.vercel.app/assets/:splat  200
+/assets/*          https://heardle-mauve.vercel.app/assets/:splat  200
