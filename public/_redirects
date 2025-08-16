@@ -3,4 +3,4 @@
 /heardle https://heardle-mauve.vercel.app/heardle/ 200
 
 # Proxy vercel analytics script
-/_vercel/insights/script.js https://heardle-mauve.vercel.app/heardle/_vercel/insights/script.js 200
+/_vercel/insights/script.js https://heardle-mauve.vercel.app/_vercel/insights/script.js 200
