@@ -2,5 +2,5 @@
 /heardle/* https://heardle-mauve.vercel.app/heardle/:splat 200
 /heardle https://heardle-mauve.vercel.app/heardle/ 200
 
-# Redirect vercel analytics script
-/_vercel
+# Proxy vercel analytics script
+/_vercel/insights/script.js https://heardle-mauve.vercel.app/heardle/_vercel/insights/script.js 200
