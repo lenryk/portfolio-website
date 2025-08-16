@@ -1,3 +1,6 @@
 # Proxy the Heardle main app pages
 /heardle/* https://heardle-mauve.vercel.app/heardle/:splat 200
 /heardle https://heardle-mauve.vercel.app/heardle/ 200
+
+# Redirect vercel analytics script
+/_vercel
