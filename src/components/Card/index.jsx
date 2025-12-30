@@ -5,12 +5,14 @@ import Image from "next/image";
 import PortfolioCover from "../../../public/assets/images/portfolio-homepage.jpg";
 import MoreComingSoon from "../../../public/assets/images/loading.jpg";
 import CashAppCover from "../../../public/assets/images/cash-app-project.jpg";
+import HeardleCover from "../../../public/assets/images/heardle.jpg";
 
 export default function Card({ name, metadata }) {
   const coverImages = {
     portfolio: PortfolioCover,
     "more-coming-soon": MoreComingSoon,
     "cash-app": CashAppCover,
+    heardle: HeardleCover,
   };
 
   return (
@@ -61,9 +63,11 @@ export default function Card({ name, metadata }) {
             <Button preset="primary" as="link" href={metadata.url}>
               view-project
             </Button>
-            <Button as="link" href={metadata.githubUrl}>
-              view-code
-            </Button>
+            {metadata.githubUrl && (
+              <Button as="link" href={metadata.githubUrl}>
+                view-code
+              </Button>
+            )}
           </div>
         </div>
       </div>

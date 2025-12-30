@@ -15,8 +15,15 @@ export async function GET() {
       text: "A responsive Cash App single page website clone built in Gatsby & Styled components, based on a free figma design.",
       icons: ["react", "gatsby", "styled", "typescript"],
     },
-    "more-coming-soon": {
+    heardle: {
       id: 3,
+      url: "https://samcarr.co.uk/heardle",
+      githubUrl: "",
+      text: "A music guessing game similar to the popular worlde built with Next.js & Typescript featuring numerous artists.",
+      icons: ["next.js", "react", "tailwind", "typescript"],
+    },
+    "more-coming-soon": {
+      id: 4,
       url: "",
       githubUrl: "",
       text: "Currently in the process of making a range of different projects, so be sure to come back soon!",
