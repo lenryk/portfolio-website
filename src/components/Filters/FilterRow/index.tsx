@@ -1,7 +1,14 @@
 import { Checkbox } from "@/components/Checkbox";
 import { Icon } from "@/components/Icon";
+import type { ProjectIcon } from "@/data/projects";
 
-export function FilterRow({ name, checked, onClick }) {
+type FilterRowProps = {
+  name: ProjectIcon;
+  checked: boolean;
+  onClick: (name: ProjectIcon) => void;
+};
+
+export function FilterRow({ name, checked, onClick }: FilterRowProps) {
   return (
     <div
       onClick={() => onClick(name)}

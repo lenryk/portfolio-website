@@ -1,8 +1,13 @@
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
 import { MobileHeader } from "@/components/Layout/MobileHeader";
+import type { ReactNode } from "react";
 
-export function Container({ children }) {
+type ContainerProps = {
+  children: ReactNode;
+};
+
+export function Container({ children }: ContainerProps) {
   return (
     <main
       className="flex

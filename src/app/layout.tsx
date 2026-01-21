@@ -1,9 +1,15 @@
 import "./globals.css";
 import { Container } from "@/components/Layout/Container";
-import { Fira_Code } from "next/font/google";
+import localFont from "next/font/local";
 
-const firaCode = Fira_Code({
-  subsets: ["latin"],
+const firaCode = localFont({
+  src: [
+    { path: "../fonts/FiraCode-300.ttf", weight: "300", style: "normal" },
+    { path: "../fonts/FiraCode-400.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/FiraCode-500.ttf", weight: "500", style: "normal" },
+    { path: "../fonts/FiraCode-600.ttf", weight: "600", style: "normal" },
+    { path: "../fonts/FiraCode-700.ttf", weight: "700", style: "normal" },
+  ],
   display: "swap",
   variable: "--font-fira",
 });

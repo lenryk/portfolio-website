@@ -2,7 +2,8 @@ import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
 import { clsx } from "clsx";
 import Image from "next/image";
-import type { Project } from "@/types/projects";
+import type { StaticImageData } from "next/image";
+import type { Project } from "@/data/projects";
 import PortfolioCover from "../../../public/assets/images/portfolio-homepage.jpg";
 import MoreComingSoon from "../../../public/assets/images/loading.jpg";
 import CashAppCover from "../../../public/assets/images/cash-app-project.jpg";
@@ -14,12 +15,13 @@ type CardProps = {
 };
 
 export function Card({ name, metadata }: CardProps) {
-  const coverImages = {
+  const coverImages: Record<string, StaticImageData> = {
     portfolio: PortfolioCover,
     "more-coming-soon": MoreComingSoon,
     "cash-app": CashAppCover,
     heardle: HeardleCover,
   };
+  const coverImage = coverImages[name] ?? PortfolioCover;
 
   return (
     <div>
@@ -32,12 +34,12 @@ export function Card({ name, metadata }: CardProps) {
       <div className="flex max-w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
         <div className="relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
           <Image
-            src={coverImages[name]}
+            src={coverImage}
             alt={`project-${name}`}
             fill
             className="bg-contain"
             placeholder="blur"
-            priority
+            sizes="(min-width: 1024px) 370px, 100vw"
           />
           <div className="absolute bottom-0 left-0 mb-2 ml-2 flex gap-2">
             {metadata.icons.map((icon) => {

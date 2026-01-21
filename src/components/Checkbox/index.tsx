@@ -1,4 +1,8 @@
-export function Checkbox({ checked }) {
+type CheckboxProps = {
+  checked: boolean;
+};
+
+export function Checkbox({ checked }: CheckboxProps) {
   return (
     <div className="pointer relative pl-6">
       <input

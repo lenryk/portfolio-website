@@ -2,7 +2,12 @@
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-export function CodeText({ children }) {
+
+type CodeTextProps = {
+  children: string;
+};
+
+export function CodeText({ children }: CodeTextProps) {
   const [isClient, setIsClient] = useState(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
   const [height, setHeight] = useState(() => contentRef.current?.offsetHeight);

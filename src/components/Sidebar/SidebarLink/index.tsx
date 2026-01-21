@@ -1,14 +1,24 @@
 import { Icon } from "@/components/Icon";
+import type { IconName } from "@/components/Icon";
+import type { MouseEventHandler } from "react";
 import Link from "next/link";
 import { clsx } from "clsx";
+
+type SidebarLinkProps = {
+  icon: IconName;
+  name: string;
+  url?: string;
+  onClick?: MouseEventHandler<HTMLDivElement>;
+  page?: string | null;
+};
 
 export function SidebarLink({
   icon,
   name,
   url = "",
-  onClick = null,
+  onClick,
   page = null,
-}) {
+}: SidebarLinkProps) {
   const [removeExtension] = name.split(".");
   const isLink = Boolean(url);
 

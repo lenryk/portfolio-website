@@ -1,4 +1,14 @@
-export function Input({ type, label, children }) {
+import type { ReactNode } from "react";
+
+type InputType = "text" | "email" | "textarea";
+
+type InputProps = {
+  type: InputType;
+  label: string;
+  children: ReactNode;
+};
+
+export function Input({ type, label, children }: InputProps) {
   return (
     <div className="flex flex-col">
       <label className="mb-2.5 text-secondary-lynch" htmlFor={label}>

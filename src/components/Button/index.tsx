@@ -1,13 +1,46 @@
 import { clsx } from "clsx";
 import Link from "next/link";
-export function Button({
-  children,
-  className = "",
-  preset = "",
-  as,
-  href = "",
-  ...rest
-}) {
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
+
+type ButtonBaseProps = {
+  children: ReactNode;
+  className?: string;
+  preset?: "primary" | "ghost";
+};
+
+type ButtonLinkProps = ButtonBaseProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    as: "link" | "a";
+    href: string;
+  };
+
+type ButtonButtonProps = ButtonBaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    as: "button";
+    href?: never;
+  };
+
+type ButtonDivProps = ButtonBaseProps &
+  HTMLAttributes<HTMLDivElement> & {
+    as?: "div";
+    href?: never;
+  };
+
+type ButtonProps = ButtonLinkProps | ButtonButtonProps | ButtonDivProps;
+
+const isLinkButton = (props: ButtonProps): props is ButtonLinkProps =>
+  props.as === "link" || props.as === "a";
+
+const isNativeButton = (props: ButtonProps): props is ButtonButtonProps =>
+  props.as === "button";
+
+export function Button(props: ButtonProps) {
+  const { className = "", preset } = props;
   const combinedClasses = clsx(
     className,
     "w-fit rounded-lg px-3 lg:px-3.5 py-2.5 cursor-pointer text-sm",
@@ -19,26 +52,42 @@ export function Button({
     }
   );
 
-  const isLink = as === "link" || as === "a";
-  const isExternal =
-    isLink && typeof href === "string" && /^https?:\/\//i.test(href);
+  if (isLinkButton(props)) {
+    const { href, children, className: _className, preset: _preset, as: _as, ...rest } =
+      props;
+    const isExternal = /^https?:\/\//i.test(href);
+    const externalProps = isExternal
+      ? { target: "_blank", rel: "noreferrer" }
+      : {};
 
-  const Element = as === "link" ? Link : as ? as : "div";
-  const linkProps = isLink ? { href } : {};
-  const externalProps = isExternal
-    ? { target: "_blank", rel: "noreferrer" }
-    : {};
+    return (
+      <Link className={combinedClasses} href={href} {...externalProps} {...rest}>
+        <span className={clsx({ "text-primary": preset === "primary" })}>
+          {children}
+        </span>
+      </Link>
+    );
+  }
 
+  if (isNativeButton(props)) {
+    const { children, className: _className, preset: _preset, as: _as, ...rest } =
+      props;
+    return (
+      <button className={combinedClasses} {...rest}>
+        <span className={clsx({ "text-primary": preset === "primary" })}>
+          {children}
+        </span>
+      </button>
+    );
+  }
+
+  const { children, className: _className, preset: _preset, as: _as, ...rest } =
+    props;
   return (
-    <Element
-      className={combinedClasses}
-      {...linkProps}
-      {...externalProps}
-      {...rest}
-    >
+    <div className={combinedClasses} {...rest}>
       <span className={clsx({ "text-primary": preset === "primary" })}>
         {children}
       </span>
-    </Element>
+    </div>
   );
 }

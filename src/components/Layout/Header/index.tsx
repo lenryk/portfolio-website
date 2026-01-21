@@ -1,7 +1,7 @@
 "use client";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import headerLinks from "@/utils/headerLinks";
+import { headerLinks } from "@/data/headerLinks";
 
 export function Header() {
   const currentRoute = usePathname();
@@ -18,8 +18,8 @@ export function Header() {
       >
         sam-carr
       </Link>
-      {Object.entries(headerLinks).map(([name, url], index) => {
-        if (!name) {
+      {headerLinks.map((link, index) => {
+        if (!link.name) {
           return (
             <div
               key="invisible"
@@ -30,19 +30,19 @@ export function Header() {
 
         return (
           <Link
-            key={url}
-            id={name}
+            key={link.href}
+            id={link.name}
             className={`relative hidden ${
-              index !== Object.entries(headerLinks).length - 1 ? "border-r" : ""
+              index !== headerLinks.length - 1 ? "border-r" : ""
             } border-lines px-7 py-4.5 lg:block ${
-              currentRoute === url ? "text-secondary" : ""
+              currentRoute === link.href ? "text-secondary" : ""
             }`}
-            href={url}
+            href={link.href}
           >
-            {name}
+            {link.name}
             <div
               className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
-                currentRoute === url ? "" : "hidden"
+                currentRoute === link.href ? "" : "hidden"
               }`}
             ></div>
           </Link>

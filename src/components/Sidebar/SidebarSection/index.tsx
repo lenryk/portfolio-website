@@ -1,8 +1,19 @@
 "use client";
 import { Icon } from "@/components/Icon";
 import { useEffect, useLayoutEffect, useState } from "react";
+import type { ReactNode } from "react";
 
-export function SidebarSection({ title, children, className = "" }) {
+type SidebarSectionProps = {
+  title: string;
+  children: ReactNode;
+  className?: string;
+};
+
+export function SidebarSection({
+  title,
+  children,
+  className = "",
+}: SidebarSectionProps) {
   const [isClient, setIsClient] = useState(false);
 
   useLayoutEffect(() => {

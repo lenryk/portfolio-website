@@ -1,7 +1,7 @@
 "use client";
 import { Icon } from "@/components/Icon";
 import Link from "next/link";
-import headerLinks from "@/utils/headerLinks";
+import { headerLinks } from "@/data/headerLinks";
 import { useState } from "react";
 
 export function MobileHeader() {
@@ -37,18 +37,18 @@ export function MobileHeader() {
       >
         <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col transition">
           <ul className="relative z-40 mx-px min-h-full bg-primary-midnight">
-            {Object.entries(headerLinks).map(([name, url]) => {
-              if (!name) {
+            {headerLinks.map((link) => {
+              if (!link.name) {
                 return null;
               }
               return (
-                <li key={url}>
+                <li key={link.href}>
                   <Link
-                    href={url}
+                    href={link.href}
                     className="block border-b border-lines bg-primary-midnight px-6 py-5"
                     onClick={() => setVisible(false)}
                   >
-                    {name}
+                    {link.name}
                   </Link>
                 </li>
               );
