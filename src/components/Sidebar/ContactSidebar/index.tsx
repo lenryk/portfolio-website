@@ -1,7 +1,7 @@
-import SidebarLink from "@/components/Sidebar/SidebarLink";
-import SidebarSection from "@/components/Sidebar/SidebarSection";
+import { SidebarLink } from "@/components/Sidebar/SidebarLink";
+import { SidebarSection } from "@/components/Sidebar/SidebarSection";
 
-export default function Contact() {
+export function ContactSidebar() {
   return (
     <SidebarSection title="contacts" className="bg-secondary">
       <SidebarLink

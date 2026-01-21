@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import Link from "next/link";
-export default function Button({
+export function Button({
   children,
   className,
   preset,

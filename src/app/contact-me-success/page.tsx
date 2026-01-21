@@ -1,9 +1,9 @@
-import ContactSidebar from "@/components/Sidebar/ContactSidebar";
-import Icon from "@/components/Icon";
-import Heading from "@/components/Heading";
-import Button from "@/components/Button";
-import Sidebar from "@/components/Sidebar";
-import OtherProfiles from "@/components/Sidebar/OtherProfiles";
+import { ContactSidebar } from "@/components/Sidebar/ContactSidebar";
+import { Icon } from "@/components/Icon";
+import { Heading } from "@/components/Heading";
+import { Button } from "@/components/Button";
+import { Sidebar } from "@/components/Sidebar";
+import { OtherProfiles } from "@/components/Sidebar/OtherProfiles";
 
 export default function ContactMeSuccess() {
   return (

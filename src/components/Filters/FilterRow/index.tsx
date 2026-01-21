@@ -1,7 +1,7 @@
-import Checkbox from "@/components/Checkbox";
-import Icon from "@/components/Icon";
+import { Checkbox } from "@/components/Checkbox";
+import { Icon } from "@/components/Icon";
 
-export default function FilterRow({ name, checked, onClick }) {
+export function FilterRow({ name, checked, onClick }) {
   return (
     <div
       onClick={() => onClick(name)}

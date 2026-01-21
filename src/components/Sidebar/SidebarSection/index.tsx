@@ -1,8 +1,8 @@
 "use client";
-import Icon from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import { useEffect, useLayoutEffect, useState } from "react";
 
-export default function SidebarSection({ title, children }) {
+export function SidebarSection({ title, children }) {
   const [isClient, setIsClient] = useState(false);
 
   useLayoutEffect(() => {

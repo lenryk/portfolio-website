@@ -1,4 +1,4 @@
-export default function Checkbox({ checked }) {
+export function Checkbox({ checked }) {
   return (
     <div className="pointer relative pl-6">
       <input

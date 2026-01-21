@@ -1,5 +1,5 @@
-import Heading from "@/components/Heading";
-import Button from "@/components/Button";
+import { Heading } from "@/components/Heading";
+import { Button } from "@/components/Button";
 
 export default function Home() {
   return (

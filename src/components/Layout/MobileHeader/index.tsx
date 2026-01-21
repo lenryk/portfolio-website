@@ -1,10 +1,10 @@
 "use client";
-import Icon from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import headerLinks from "@/utils/headerLinks";
 import { useState } from "react";
 
-export default function MobileMenu() {
+export function MobileHeader() {
   const [visible, setVisible] = useState(false);
 
   return (

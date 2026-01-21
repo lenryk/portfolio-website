@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-const Heading = ({ children, className, size: HeadingSize }) => {
+export function Heading({ children, className, size: HeadingSize }) {
   const headingSizeStyling = HeadingSize === "h1" ? "text-6xl" : "text-3xl";
 
   return (
@@ -7,9 +7,7 @@ const Heading = ({ children, className, size: HeadingSize }) => {
       {children}
     </HeadingSize>
   );
-};
-
-export default Heading;
+}
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,

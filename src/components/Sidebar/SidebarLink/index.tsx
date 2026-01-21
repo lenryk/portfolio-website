@@ -1,8 +1,8 @@
-import Icon from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 import { clsx } from "clsx";
 
-export default function SidebarLink({
+export function SidebarLink({
   icon,
   name,
   url,

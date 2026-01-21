@@ -1,12 +1,12 @@
 "use client";
-import Sidebar from "@/components/Sidebar";
-import SidebarLink from "@/components/Sidebar/SidebarLink";
-import ContactSidebar from "@/components/Sidebar/ContactSidebar";
-import Icon from "@/components/Icon";
-import CodeText from "@/components/CodeText";
+import { Sidebar } from "@/components/Sidebar";
+import { SidebarLink } from "@/components/Sidebar/SidebarLink";
+import { ContactSidebar } from "@/components/Sidebar/ContactSidebar";
+import { Icon } from "@/components/Icon";
+import { CodeText } from "@/components/CodeText";
 import { useState } from "react";
 import articles from "@/markdown/content";
-import SidebarSection from "@/components/Sidebar/SidebarSection";
+import { SidebarSection } from "@/components/Sidebar/SidebarSection";
 
 export default function AboutMe() {
   const [page, setPage] = useState("about-me");

@@ -1,4 +1,4 @@
-export default function Input({ type, label, children }) {
+export function Input({ type, label, children }) {
   return (
     <div className="flex flex-col">
       <label className="mb-2.5 text-secondary-lynch" htmlFor={label}>

@@ -1,7 +1,7 @@
-import Icon from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import Link from "next/link";
 
-const Footer = () => {
+export function Footer() {
   return (
     <footer
       className="relative z-40 flex max-h-[56px] min-h-[56px] select-none
@@ -30,6 +30,4 @@ const Footer = () => {
       </Link>
     </footer>
   );
-};
-
-export default Footer;
+}

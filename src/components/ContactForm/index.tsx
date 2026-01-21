@@ -1,7 +1,7 @@
-import Input from "@/components/Input";
-import Button from "@/components/Button";
+import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
 
-export default function ContactForm() {
+export function ContactForm() {
   return (
     <form
       data-netlify="true"

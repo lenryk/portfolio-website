@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 
-const Icon = ({
+export const Icon = ({
   alt = "",
   icon,
   className = "",
@@ -20,8 +20,6 @@ const Icon = ({
     />
   );
 };
-
-export default Icon;
 
 Icon.propTypes = {
   alt: PropTypes.string,

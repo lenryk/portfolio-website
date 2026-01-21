@@ -1,10 +1,10 @@
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
+import { Header } from "@/components/Layout/Header";
+import { Footer } from "@/components/Layout/Footer";
 import PropTypes from "prop-types";
-import CodeText from "@/components/CodeText";
-import MobileHeader from "@/components/Layout/MobileHeader";
+import { CodeText } from "@/components/CodeText";
+import { MobileHeader } from "@/components/Layout/MobileHeader";
 
-const Container = ({ children }) => {
+export function Container({ children }) {
   return (
     <main
       className="flex
@@ -18,9 +18,7 @@ const Container = ({ children }) => {
       <Footer />
     </main>
   );
-};
-
-export default Container;
+}
 
 CodeText.PropTypes = {
   children: PropTypes.node.isRequired,

@@ -1,5 +1,5 @@
 import "./globals.css";
-import Container from "@/components/Layout/Container";
+import { Container } from "@/components/Layout/Container";
 import { Fira_Code } from "next/font/google";
 
 const firaCode = Fira_Code({

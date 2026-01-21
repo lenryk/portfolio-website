@@ -1,7 +1,7 @@
-import SidebarLink from "@/components/Sidebar/SidebarLink";
-import SidebarSection from "@/components/Sidebar/SidebarSection";
+import { SidebarLink } from "@/components/Sidebar/SidebarLink";
+import { SidebarSection } from "@/components/Sidebar/SidebarSection";
 
-export default function OtherProfiles() {
+export function OtherProfiles() {
   return (
     <SidebarSection title="other-profiles" className="bg-secondary">
       <SidebarLink

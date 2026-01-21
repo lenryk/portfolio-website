@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import headerLinks from "@/utils/headerLinks";
 
-export default function Header() {
+export function Header() {
   const currentRoute = usePathname();
 
   return (

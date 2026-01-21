@@ -1,7 +1,7 @@
 "use client";
-import FilterRow from "@/components/Filters/FilterRow";
+import { FilterRow } from "@/components/Filters/FilterRow";
 
-export default function Filters({ handleFilters, filters }) {
+export function Filters({ handleFilters, filters }) {
   function handleFilterClick(name) {
     handleFilters({ ...filters, [name]: !filters[name] });
   }

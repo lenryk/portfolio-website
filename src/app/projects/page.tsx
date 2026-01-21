@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import Sidebar from "@/components/Sidebar";
-import Filters from "@/components/Filters";
-import Icon from "@/components/Icon";
-import PortfolioProjects from "@/components/PortfolioProjects";
+import { Sidebar } from "@/components/Sidebar";
+import { Filters } from "@/components/Filters";
+import { Icon } from "@/components/Icon";
+import { PortfolioProjects } from "@/components/PortfolioProjects";
 import useSWR from "swr";
-import SidebarSection from "@/components/Sidebar/SidebarSection";
+import { SidebarSection } from "@/components/Sidebar/SidebarSection";
 
 export default function Projects() {
   async function fetcher(url) {
