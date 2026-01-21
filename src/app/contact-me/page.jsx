@@ -1,7 +1,7 @@
 import Icon from "@/components/Icon";
-import ContactForm from "src/components/ContactForm";
+import ContactForm from "@/components/ContactForm";
 import Sidebar from "@/components/Sidebar";
-import ContactSidebar from "src/components/Sidebar/ContactSidebar";
+import ContactSidebar from "@/components/Sidebar/ContactSidebar";
 import OtherProfiles from "@/components/Sidebar/OtherProfiles";
 
 export default function ContactMe() {

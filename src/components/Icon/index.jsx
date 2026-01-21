@@ -1,7 +1,14 @@
 import Image from "next/image";
 import PropTypes from "prop-types";
 
-const Icon = ({ alt, icon, className, size, rotate, ...rest }) => {
+const Icon = ({
+  alt = "",
+  icon,
+  className = "",
+  size = 21,
+  rotate,
+  ...rest
+}) => {
   return (
     <Image
       className={`${className} transition-transform ${rotate && "rotate-90"}`}
@@ -16,8 +23,8 @@ const Icon = ({ alt, icon, className, size, rotate, ...rest }) => {
 
 export default Icon;
 
-Icon.PropTypes = {
-  alt: PropTypes.string.isRequired,
+Icon.propTypes = {
+  alt: PropTypes.string,
   icon: PropTypes.oneOf([
     "github",
     "arrow-down",
@@ -27,9 +34,11 @@ Icon.PropTypes = {
     "folder-purple",
     "folder-red",
     "gamepad",
+    "hamburger-menu",
     "image",
     "javascript",
     "linkedin",
+    "loader-2",
     "mail",
     "markdown",
     "terminal-box",
@@ -40,9 +49,4 @@ Icon.PropTypes = {
   ]).isRequired,
   className: PropTypes.string,
   size: PropTypes.number,
-};
-
-Icon.defaultProps = {
-  className: "",
-  size: 21,
 };
