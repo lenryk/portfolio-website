@@ -1,4 +1,4 @@
-const headerLinks = {
+const headerLinks: Record<string, string> = {
   _hello: "/",
   "_about-me": "/about-me",
   _projects: "/projects",

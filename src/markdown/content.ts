@@ -1,4 +1,4 @@
-const articles = {
+const articles: Record<string, string> = {
   "about-me": `**Hello world!** And welcome to my portfolio website.
     </br></br>
     I’m Sam, a full stack software engineer who loves nothing better than getting my hands dirty and building stuff. Whether that's a dashboard, landing page, web scraper or a scalable serverless distributed system, I love the challenge of solving complex problems.

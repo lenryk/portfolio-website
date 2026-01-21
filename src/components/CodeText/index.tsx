@@ -5,7 +5,7 @@ import rehypeRaw from "rehype-raw";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 export default function CodeText({ children }) {
   const [isClient, setIsClient] = useState(false);
-  const contentRef = useRef();
+  const contentRef = useRef<HTMLDivElement | null>(null);
   const [height, setHeight] = useState(() => contentRef.current?.offsetHeight);
   const [linesLength, setLinesLength] = useState(20);
   const [lineLengthVisible, setLineLengthVisible] = useState(false);
@@ -14,9 +14,16 @@ export default function CodeText({ children }) {
     setIsClient(true);
   }, []);
 
+  function updateHeight() {
+    const nextHeight = contentRef.current?.firstElementChild?.clientHeight;
+    if (nextHeight !== undefined) {
+      setHeight(nextHeight);
+    }
+  }
+
   useLayoutEffect(() => {
     if (isClient) {
-      setHeight(contentRef.current.childNodes[0].clientHeight);
+      updateHeight();
     }
   }, [isClient, children]);
 
@@ -27,7 +34,7 @@ export default function CodeText({ children }) {
 
   useEffect(() => {
     function handleWindowResize() {
-      setHeight(contentRef.current.childNodes[0].clientHeight);
+      updateHeight();
     }
 
     window.addEventListener("resize", handleWindowResize);

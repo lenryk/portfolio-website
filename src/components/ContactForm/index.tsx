@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 export default function ContactForm() {
   return (
     <form
-      netlify
+      data-netlify="true"
       name="contact"
       action="/contact-me-success"
       className="mx-auto my-10 flex h-full w-[372px] flex-col justify-center gap-6 px-8"

@@ -20,7 +20,7 @@ export default function ContactMeSuccess() {
             className="flex h-[41px] w-fit items-center gap-[48px]
           border-r border-lines pl-3.5 pr-3 text-secondary-lynch"
           >
-            success-message.jsx <Icon icon="close" size={20} />
+            success-message.tsx <Icon icon="close" size={20} />
           </div>
         </div>
         <div className="my-auto flex flex-col items-center">
