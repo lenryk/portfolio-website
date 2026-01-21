@@ -24,7 +24,7 @@ export default function Card({ name, metadata }) {
         <span className="text-secondary-lynch"> // _{name}</span>
       </p>
       <div className="flex max-w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
-        <div className="border-1 relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
+        <div className="relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
           <Image
             src={coverImages[name]}
             alt={`project-${name}`}
