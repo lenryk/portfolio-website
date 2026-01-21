@@ -29,7 +29,7 @@ export default function MobileMenu() {
         id="menuToggle"
         className="peer hidden"
         checked={visible}
-        onClick={() => setVisible((oldState) => !oldState)}
+        onChange={(event) => setVisible(event.target.checked)}
       />
       <div
         className="invisible relative z-40 min-h-full opacity-10 transition-opacity

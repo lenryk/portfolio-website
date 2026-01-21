@@ -14,9 +14,9 @@ export default function FilterRow({ name, checked, onClick }) {
         size={24}
         className={checked ? "" : "opacity-40"}
       />{" "}
-      <span
-        className={checked && "text-secondary"}
-      >{`${name[0].toUpperCase()}${name.substring(1)}`}</span>
+      <span className={checked ? "text-secondary" : ""}>
+        {`${name[0].toUpperCase()}${name.substring(1)}`}
+      </span>
     </div>
   );
 }

@@ -19,16 +19,26 @@ export default function Button({
     }
   );
 
+  const isLink = as === "link" || as === "a";
+  const isExternal =
+    isLink && typeof href === "string" && /^https?:\/\//i.test(href);
+
   const Element = as === "link" ? Link : as ? as : "div";
+  const linkProps = isLink ? { href } : {};
+  const externalProps = isExternal
+    ? { target: "_blank", rel: "noreferrer" }
+    : {};
 
   return (
     <Element
       className={combinedClasses}
-      href={href}
-      target={Link ? "_blank" : null}
+      {...linkProps}
+      {...externalProps}
       {...rest}
     >
-      <span className={preset === "primary" && "text-primary"}>{children}</span>
+      <span className={clsx({ "text-primary": preset === "primary" })}>
+        {children}
+      </span>
     </Element>
   );
 }

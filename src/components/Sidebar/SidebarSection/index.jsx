@@ -55,7 +55,7 @@ export default function SidebarSection({ title, children }) {
         id={title}
         className="hidden"
         checked={itemsVisible}
-        onClick={() => setItemsVisible((oldState) => !oldState)}
+        onChange={(event) => setItemsVisible(event.target.checked)}
       />
       {itemsVisible ? (
         <div className="flex flex-col gap-[11px] border-0 border-lines py-6 pl-6 lg:border-b">
