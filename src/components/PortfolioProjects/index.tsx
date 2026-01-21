@@ -1,6 +1,11 @@
 import { Card } from "@/components/Card";
+import type { Projects } from "@/types/projects";
 
-export function PortfolioProjects({ projects }) {
+type PortfolioProjectsProps = {
+  projects: Projects;
+};
+
+export function PortfolioProjects({ projects }: PortfolioProjectsProps) {
   return (
     <div className="flex h-full flex-wrap items-center justify-center gap-10 p-6">
       {Object.entries(projects ?? {}).map(([name, metadata]) => (

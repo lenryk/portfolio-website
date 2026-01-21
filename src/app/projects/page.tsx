@@ -6,9 +6,10 @@ import { Icon } from "@/components/Icon";
 import { PortfolioProjects } from "@/components/PortfolioProjects";
 import useSWR from "swr";
 import { SidebarSection } from "@/components/Sidebar/SidebarSection";
+import type { Projects } from "@/types/projects";
 
 export default function Projects() {
-  async function fetcher(url) {
+  async function fetcher(url: string): Promise<Projects> {
     try {
       const response = await fetch(url);
       return await response.json();
@@ -17,9 +18,9 @@ export default function Projects() {
     }
   }
 
-  const { data: projectsData } = useSWR(`/api/projects`, fetcher);
+  const { data: projectsData } = useSWR<Projects>(`/api/projects`, fetcher);
 
-  const [projects, setProjects] = useState(projectsData);
+  const [projects, setProjects] = useState<Projects | undefined>(projectsData);
   const [enabledFilters, setEnabledFilters] = useState([]);
   const defaultFilters = {
     react: false,
@@ -44,6 +45,10 @@ export default function Projects() {
   }, [filters]);
 
   useEffect(() => {
+    if (!projectsData) {
+      return;
+    }
+
     if (enabledFilters.length < 1) {
       setProjects(projectsData);
       return;

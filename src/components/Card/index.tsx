@@ -2,12 +2,18 @@ import { Button } from "@/components/Button";
 import { Icon } from "@/components/Icon";
 import { clsx } from "clsx";
 import Image from "next/image";
+import type { Project } from "@/types/projects";
 import PortfolioCover from "../../../public/assets/images/portfolio-homepage.jpg";
 import MoreComingSoon from "../../../public/assets/images/loading.jpg";
 import CashAppCover from "../../../public/assets/images/cash-app-project.jpg";
 import HeardleCover from "../../../public/assets/images/heardle.jpg";
 
-export function Card({ name, metadata }) {
+type CardProps = {
+  name: string;
+  metadata: Project;
+};
+
+export function Card({ name, metadata }: CardProps) {
   const coverImages = {
     portfolio: PortfolioCover,
     "more-coming-soon": MoreComingSoon,

@@ -2,7 +2,7 @@
 import { Icon } from "@/components/Icon";
 import { useEffect, useLayoutEffect, useState } from "react";
 
-export function SidebarSection({ title, children }) {
+export function SidebarSection({ title, children, className = "" }) {
   const [isClient, setIsClient] = useState(false);
 
   useLayoutEffect(() => {
@@ -37,8 +37,8 @@ export function SidebarSection({ title, children }) {
   return (
     <>
       <div
-        className="flex h-[41px] select-none items-center
-        gap-[11px] border-0 border-b border-lines bg-lines lg:bg-primary-midnight"
+        className={`flex h-[41px] select-none items-center
+        gap-[11px] border-0 border-b border-lines bg-lines lg:bg-primary-midnight ${className}`}
       >
         <label htmlFor={title} className="flex cursor-pointer gap-[11px] pl-4">
           <Icon

@@ -1,21 +1,22 @@
-import PropTypes from "prop-types";
-export function Heading({ children, className, size: HeadingSize }) {
-  const headingSizeStyling = HeadingSize === "h1" ? "text-6xl" : "text-3xl";
+import type { ReactNode } from "react";
+
+type HeadingProps = {
+  children: ReactNode;
+  className?: string;
+  size?: "h1" | "h2";
+};
+
+export function Heading({
+  children,
+  className = "",
+  size = "h1",
+}: HeadingProps) {
+  const headingSizeStyling = size === "h1" ? "text-6xl" : "text-3xl";
+  const HeadingTag = size;
 
   return (
-    <HeadingSize className={`${headingSizeStyling} ${className}`}>
+    <HeadingTag className={`${headingSizeStyling} ${className}`}>
       {children}
-    </HeadingSize>
+    </HeadingTag>
   );
 }
-
-Heading.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  size: PropTypes.string,
-};
-
-Heading.defaultProps = {
-  size: "h1",
-  className: "",
-};

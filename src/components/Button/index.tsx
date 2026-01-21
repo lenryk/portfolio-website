@@ -2,8 +2,8 @@ import { clsx } from "clsx";
 import Link from "next/link";
 export function Button({
   children,
-  className,
-  preset,
+  className = "",
+  preset = "",
   as,
   href = "",
   ...rest

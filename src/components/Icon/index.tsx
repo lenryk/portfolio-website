@@ -1,17 +1,19 @@
 import Image from "next/image";
-import PropTypes from "prop-types";
+import { clsx } from "clsx";
 
 export const Icon = ({
   alt = "",
   icon,
   className = "",
   size = 21,
-  rotate,
+  rotate = false,
   ...rest
 }) => {
   return (
     <Image
-      className={`${className} transition-transform ${rotate && "rotate-90"}`}
+      className={clsx(className, "transition-transform", {
+        "rotate-90": rotate,
+      })}
       src={`/icons/${icon}.svg`}
       alt={alt}
       width={size}
@@ -19,32 +21,4 @@ export const Icon = ({
       {...rest}
     />
   );
-};
-
-Icon.propTypes = {
-  alt: PropTypes.string,
-  icon: PropTypes.oneOf([
-    "github",
-    "arrow-down",
-    "arrow-right",
-    "close",
-    "folder-green",
-    "folder-purple",
-    "folder-red",
-    "gamepad",
-    "hamburger-menu",
-    "image",
-    "javascript",
-    "linkedin",
-    "loader-2",
-    "mail",
-    "markdown",
-    "terminal-box",
-    "user",
-    "gatsby",
-    "typescript",
-    "styled",
-  ]).isRequired,
-  className: PropTypes.string,
-  size: PropTypes.number,
 };

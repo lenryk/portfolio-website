@@ -1,7 +1,5 @@
 import { Header } from "@/components/Layout/Header";
 import { Footer } from "@/components/Layout/Footer";
-import PropTypes from "prop-types";
-import { CodeText } from "@/components/CodeText";
 import { MobileHeader } from "@/components/Layout/MobileHeader";
 
 export function Container({ children }) {
@@ -19,7 +17,3 @@ export function Container({ children }) {
     </main>
   );
 }
-
-CodeText.PropTypes = {
-  children: PropTypes.node.isRequired,
-};

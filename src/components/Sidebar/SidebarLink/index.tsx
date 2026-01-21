@@ -5,12 +5,12 @@ import { clsx } from "clsx";
 export function SidebarLink({
   icon,
   name,
-  url,
+  url = "",
   onClick = null,
   page = null,
 }) {
   const [removeExtension] = name.split(".");
-  const Element = url ? Link : "div";
+  const isLink = Boolean(url);
 
   const className = clsx(
     "flex cursor-pointer select-none gap-[9px]",
@@ -18,16 +18,24 @@ export function SidebarLink({
     { "text-secondary-lynch": page !== name.split(".")[0] }
   );
 
+  if (isLink) {
+    return (
+      <Link
+        className={className}
+        id={removeExtension}
+        href={url}
+        target="_blank"
+      >
+        <Icon icon={icon} size={24} />
+        {name}
+      </Link>
+    );
+  }
+
   return (
-    <Element
-      className={className}
-      onClick={onClick}
-      id={removeExtension}
-      href={url}
-      target="_blank"
-    >
+    <div className={className} onClick={onClick} id={removeExtension}>
       <Icon icon={icon} size={24} />
       {name}
-    </Element>
+    </div>
   );
 }

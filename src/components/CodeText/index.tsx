@@ -1,5 +1,4 @@
 "use client";
-import PropTypes from "prop-types";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
@@ -56,16 +55,10 @@ export function CodeText({ children }) {
         ))}
       </div>
       <div className="lg:ml-5" ref={contentRef}>
-        <ReactMarkdown rehypePlugins={rehypeRaw}>{children}</ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+          {children}
+        </ReactMarkdown>
       </div>
     </article>
   );
 }
-
-/**
- *
- */
-
-CodeText.PropTypes = {
-  children: PropTypes.node.isRequired,
-};
