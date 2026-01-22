@@ -9,12 +9,7 @@ type ContainerProps = {
 
 export function Container({ children }: ContainerProps) {
   return (
-    <main
-      className="flex
-    w-full flex-col overflow-clip
-    rounded-lg bg-primary-midnight text-secondary
-    outline outline-1 outline-offset-[-1px] outline-lines"
-    >
+    <main className="bg-primary-midnight text-secondary outline-lines flex w-full flex-col overflow-clip rounded-lg outline outline-1 outline-offset-[-1px]">
       <Header />
       <MobileHeader />
       <section className="flex-grow">{children}</section>

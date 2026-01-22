@@ -48,8 +48,7 @@ export function SidebarSection({
   return (
     <>
       <div
-        className={`flex h-[41px] select-none items-center
-        gap-[11px] border-0 border-b border-lines bg-lines lg:bg-primary-midnight ${className}`}
+        className={`border-lines bg-lines lg:bg-primary-midnight flex h-[41px] items-center gap-[11px] border-0 border-b select-none ${className}`}
       >
         <label htmlFor={title} className="flex cursor-pointer gap-[11px] pl-4">
           <Icon
@@ -69,7 +68,7 @@ export function SidebarSection({
         onChange={(event) => setItemsVisible(event.target.checked)}
       />
       {itemsVisible ? (
-        <div className="flex flex-col gap-[11px] border-0 border-lines py-6 pl-6 lg:border-b">
+        <div className="border-lines flex flex-col gap-[11px] border-0 py-6 pl-6 lg:border-b">
           {children}
         </div>
       ) : null}

@@ -49,7 +49,7 @@ export function CodeText({ children }: CodeTextProps) {
   });
 
   return (
-    <article className="flex p-6 text-lg text-secondary-lynch lg:px-9">
+    <article className="text-secondary-lynch flex p-6 text-lg lg:px-9">
       <div
         className={`hidden transition-opacity duration-500 lg:block lg:opacity-0 ${
           lineLengthVisible ? "lg:opacity-100" : ""
@@ -60,9 +60,7 @@ export function CodeText({ children }: CodeTextProps) {
         ))}
       </div>
       <div className="lg:ml-5" ref={contentRef}>
-        <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-          {children}
-        </ReactMarkdown>
+        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{children}</ReactMarkdown>
       </div>
     </article>
   );

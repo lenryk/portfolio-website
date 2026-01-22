@@ -55,21 +55,21 @@ export default function AboutMe() {
       </Sidebar>
 
       <section className="flex basis-full flex-col lg:flex-row">
-        <div className="basis-3/6 border-0 border-r border-lines lg:mb-0">
-          <div className="flex h-[41px] border-b border-t border-lines lg:border-t-0">
-            <div className="flex items-center border-r border-lines pl-6 pr-3 text-secondary-lynch lg:pl-3.5">
+        <div className="border-lines basis-3/6 border-0 border-r lg:mb-0">
+          <div className="border-lines flex h-[41px] border-t border-b lg:border-t-0">
+            <div className="border-lines text-secondary-lynch flex items-center border-r pr-3 pl-6 lg:pl-3.5">
               {page}.md <Icon className="ml-7" icon="close" size={20} />
             </div>
-            <div className="border-b border-lines" />
+            <div className="border-lines border-b" />
           </div>
           <CodeText>{articles[page]}</CodeText>
         </div>
         <div className="basis-3/6 lg:mb-0">
-          <div className="flex h-[41px] border-b border-t border-lines lg:border-t-0">
-            <div className="flex items-center border-r border-lines pl-6 pr-3 text-secondary-lynch lg:pl-3.5">
+          <div className="border-lines flex h-[41px] border-t border-b lg:border-t-0">
+            <div className="border-lines text-secondary-lynch flex items-center border-r pr-3 pl-6 lg:pl-3.5">
               README.md <Icon className="ml-7" icon="close" size={20} />
             </div>
-            <div className="h-[41px] border-b border-lines" />
+            <div className="border-lines h-[41px] border-b" />
           </div>
           <CodeText>{articles["readme"]}</CodeText>
         </div>

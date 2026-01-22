@@ -49,19 +49,30 @@ export function Button(props: ButtonProps) {
       [`bg-button-ghost outline-2 outline outline-secondary hover:outline-secondary/50`]:
         preset === "ghost",
       "bg-button hover:bg-button-hover": !preset,
-    }
+    },
   );
 
   if (isLinkButton(props)) {
-    const { href, children, className: _className, preset: _preset, as: _as, ...rest } =
-      props;
+    const {
+      href,
+      children,
+      className: _className,
+      preset: _preset,
+      as: _as,
+      ...rest
+    } = props;
     const isExternal = /^https?:\/\//i.test(href);
     const externalProps = isExternal
       ? { target: "_blank", rel: "noreferrer" }
       : {};
 
     return (
-      <Link className={combinedClasses} href={href} {...externalProps} {...rest}>
+      <Link
+        className={combinedClasses}
+        href={href}
+        {...externalProps}
+        {...rest}
+      >
         <span className={clsx({ "text-primary": preset === "primary" })}>
           {children}
         </span>
@@ -70,8 +81,13 @@ export function Button(props: ButtonProps) {
   }
 
   if (isNativeButton(props)) {
-    const { children, className: _className, preset: _preset, as: _as, ...rest } =
-      props;
+    const {
+      children,
+      className: _className,
+      preset: _preset,
+      as: _as,
+      ...rest
+    } = props;
     return (
       <button className={combinedClasses} {...rest}>
         <span className={clsx({ "text-primary": preset === "primary" })}>
@@ -81,8 +97,13 @@ export function Button(props: ButtonProps) {
     );
   }
 
-  const { children, className: _className, preset: _preset, as: _as, ...rest } =
-    props;
+  const {
+    children,
+    className: _className,
+    preset: _preset,
+    as: _as,
+    ...rest
+  } = props;
   return (
     <div className={combinedClasses} {...rest}>
       <span className={clsx({ "text-primary": preset === "primary" })}>

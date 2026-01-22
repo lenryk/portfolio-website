@@ -12,7 +12,7 @@ export function FilterRow({ name, checked, onClick }: FilterRowProps) {
   return (
     <div
       onClick={() => onClick(name)}
-      className="flex cursor-pointer select-none gap-[10px] text-secondary-lynch"
+      className="text-secondary-lynch flex cursor-pointer gap-[10px] select-none"
     >
       <Checkbox checked={checked} />
       <Icon

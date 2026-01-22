@@ -10,10 +10,7 @@ export function Checkbox({ checked }: CheckboxProps) {
         className="absolute h-0 w-0 cursor-pointer opacity-0"
       />
       <span
-        className={`absolute left-0 top-0 block h-[19px]
-      w-[19px] rounded-sm border border-secondary-lynch
-      outline-offset-0 outline-secondary-lynch/30
-      hover:outline hover:outline-2 ${checked && "bg-secondary-lynch"}`}
+        className={`border-secondary-lynch outline-secondary-lynch/30 absolute top-0 left-0 block h-[19px] w-[19px] rounded-sm border outline-offset-0 hover:outline hover:outline-2 ${checked && "bg-secondary-lynch"}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

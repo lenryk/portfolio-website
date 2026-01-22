@@ -1,4 +1,4 @@
-## My Portfolio Website 
+## My Portfolio Website
 
 ![portfolio website cover image](https://raw.githubusercontent.com/lenryk/portfolio-website/main/public/assets/images/portfolio-homepage.jpg)
 
@@ -6,7 +6,7 @@ This website was built by me [@lenryk](https://github.com/lenryk) from the groun
 
 Although I built this website myself, I didn’t design it. The design for this website came from the Figma community by the user [@darelova](https://www.figma.com/@darelova).
 
->Pro Tip: You can find plenty of free community designs for websites and new projects on the [Figma community](https://www.figma.com/community)
+> Pro Tip: You can find plenty of free community designs for websites and new projects on the [Figma community](https://www.figma.com/community)
 
 I tweaked the design for my own needs, but the main inspiration came from [@darelova](https://www.figma.com/@darelova) and their great work. So hats off to you, and I hope you design many more cool layouts in the future!
 
@@ -38,10 +38,11 @@ Just kidding! It uses a background image clip CSS property that sets the colours
 npm i
 npm run dev
 ```
+
 Open `localhost:3000`
 
 ### How long did it take to build?
 
-The main site and responsiveness design took around 4 days of work but then there were plenty of little tweaks and animations I worked in after. 
+The main site and responsiveness design took around 4 days of work but then there were plenty of little tweaks and animations I worked in after.
 
 Even now it's still an ongoing project and will probably never be truly “finished”.

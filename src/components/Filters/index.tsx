@@ -18,13 +18,13 @@ export function Filters({ handleFilters, filters }: FiltersProps) {
     <>
       {(Object.entries(filters) as [ProjectIcon, boolean][]).map(
         ([name, checked]) => (
-        <FilterRow
-          key={name}
-          onClick={handleFilterClick}
-          name={name}
-          checked={checked}
-        />
-        )
+          <FilterRow
+            key={name}
+            onClick={handleFilterClick}
+            name={name}
+            checked={checked}
+          />
+        ),
       )}
     </>
   );

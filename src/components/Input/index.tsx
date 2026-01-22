@@ -11,22 +11,18 @@ type InputProps = {
 export function Input({ type, label, children }: InputProps) {
   return (
     <div className="flex flex-col">
-      <label className="mb-2.5 text-secondary-lynch" htmlFor={label}>
+      <label className="text-secondary-lynch mb-2.5" htmlFor={label}>
         {children}
       </label>
       {type === "textarea" ? (
         <textarea
-          className="h-[145px] resize-none rounded-lg border
-          border-lines bg-primary-blue-charcoal p-4 text-secondary-lynch
-          outline-none focus:border-secondary-lynch focus:outline-1"
+          className="border-lines bg-primary-blue-charcoal text-secondary-lynch focus:border-secondary-lynch h-[145px] resize-none rounded-lg border p-4 outline-none focus:outline-1"
           id={label}
           required
         />
       ) : (
         <input
-          className="h-[41px] rounded-lg border border-lines
-          bg-primary-blue-charcoal pl-4 text-secondary-lynch
-          outline-none focus:border-secondary-lynch focus:outline-1"
+          className="border-lines bg-primary-blue-charcoal text-secondary-lynch focus:border-secondary-lynch h-[41px] rounded-lg border pl-4 outline-none focus:outline-1"
           id={label}
           type={type}
           required

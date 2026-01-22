@@ -14,18 +14,15 @@ export default function ContactMeSuccess() {
           <OtherProfiles />
         </div>
       </Sidebar>
-      <div className="flex h-full w-full flex-col ">
-        <div className="flex h-[41px] w-full border-b border-t border-lines lg:border-t-0">
-          <div
-            className="flex h-[41px] w-fit items-center gap-[48px]
-          border-r border-lines pl-3.5 pr-3 text-secondary-lynch"
-          >
+      <div className="flex h-full w-full flex-col">
+        <div className="border-lines flex h-[41px] w-full border-t border-b lg:border-t-0">
+          <div className="border-lines text-secondary-lynch flex h-[41px] w-fit items-center gap-[48px] border-r pr-3 pl-3.5">
             success-message.tsx <Icon icon="close" size={20} />
           </div>
         </div>
         <div className="my-auto flex flex-col items-center">
           <Heading size="h2">Thank you! 🤘</Heading>
-          <p className="mt-2.5 w-[380px] text-center text-secondary-lynch">
+          <p className="text-secondary-lynch mt-2.5 w-[380px] text-center">
             Your message has been sent. You will receive an answer real soon!
           </p>
           <Button className="mt-9" as="link" href="/contact-me">

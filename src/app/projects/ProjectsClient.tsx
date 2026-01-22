@@ -33,8 +33,8 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
 
     return Object.fromEntries(
       Object.entries(projects).filter(([, metadata]) =>
-        metadata.icons.some((icon) => enabledFilters.includes(icon))
-      )
+        metadata.icons.some((icon) => enabledFilters.includes(icon)),
+      ),
     ) as Projects;
   }, [projects, enabledFilters]);
 
@@ -54,11 +54,8 @@ export function ProjectsClient({ projects }: ProjectsClientProps) {
         </SidebarSection>
       </Sidebar>
       <section className="flex w-full flex-col">
-        <div className="flex w-full border-b border-t border-lines lg:h-[41px] lg:border-t-0">
-          <div
-            className="flex w-fit items-center gap-[48px]
-          border-r border-lines p-3.5 text-secondary-lynch lg:h-[41px]"
-          >
+        <div className="border-lines flex w-full border-t border-b lg:h-[41px] lg:border-t-0">
+          <div className="border-lines text-secondary-lynch flex w-fit items-center gap-[48px] border-r p-3.5 lg:h-[41px]">
             {enabledFilters.length < 1 ? "all" : enabledFilters.join("; ")}
             {";"}
             <Icon

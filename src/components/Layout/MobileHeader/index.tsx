@@ -9,13 +9,10 @@ export function MobileHeader() {
 
   return (
     <div className="">
-      <nav
-        className="flex h-[56px] min-h-[56px] flex-wrap justify-between
-    overflow-clip border-b border-solid border-lines text-secondary-lynch lg:hidden"
-      >
+      <nav className="border-lines text-secondary-lynch flex h-[56px] min-h-[56px] flex-wrap justify-between overflow-clip border-b border-solid lg:hidden">
         <Link
           id="name"
-          className="ml-4 max-w-[311px] border-solid border-lines py-4.5 lg:w-[311px] lg:border-r"
+          className="border-lines ml-4 max-w-[311px] border-solid py-4.5 lg:w-[311px] lg:border-r"
           href="/"
         >
           sam-carr
@@ -31,12 +28,9 @@ export function MobileHeader() {
         checked={visible}
         onChange={(event) => setVisible(event.target.checked)}
       />
-      <div
-        className="invisible relative z-40 min-h-full opacity-10 transition-opacity
-      duration-300 peer-checked:visible peer-checked:opacity-100 peer-checked:lg:hidden"
-      >
-        <div className="absolute bottom-0 left-0 right-0 top-0 flex h-screen flex-col transition">
-          <ul className="relative z-40 mx-px min-h-full bg-primary-midnight">
+      <div className="invisible relative z-40 min-h-full opacity-10 transition-opacity duration-300 peer-checked:visible peer-checked:opacity-100 peer-checked:lg:hidden">
+        <div className="absolute top-0 right-0 bottom-0 left-0 flex h-screen flex-col transition">
+          <ul className="bg-primary-midnight relative z-40 mx-px min-h-full">
             {headerLinks.map((link) => {
               if (!link.name) {
                 return null;
@@ -45,7 +39,7 @@ export function MobileHeader() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block border-b border-lines bg-primary-midnight px-6 py-5"
+                    className="border-lines bg-primary-midnight block border-b px-6 py-5"
                     onClick={() => setVisible(false)}
                   >
                     {link.name}
@@ -53,7 +47,7 @@ export function MobileHeader() {
                 </li>
               );
             })}
-            <li className="mx-px min-h-[999%] bg-primary-midnight " />
+            <li className="bg-primary-midnight mx-px min-h-[999%]" />
           </ul>
         </div>
       </div>

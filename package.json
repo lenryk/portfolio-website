@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --write . && eslint . --fix"
   },
   "dependencies": {
     "clsx": "^2.1.1",

@@ -31,8 +31,8 @@ export function Card({ name, metadata }: CardProps) {
         </span>
         <span className="text-secondary-lynch"> // _{name}</span>
       </p>
-      <div className="flex max-w-[370px] flex-col overflow-hidden rounded-2xl border border-lines">
-        <div className="relative h-[145px] w-full border-b border-lines bg-primary-blue-charcoal">
+      <div className="border-lines flex max-w-[370px] flex-col overflow-hidden rounded-2xl border">
+        <div className="border-lines bg-primary-blue-charcoal relative h-[145px] w-full border-b">
           <Image
             src={coverImage}
             alt={`project-${name}`}

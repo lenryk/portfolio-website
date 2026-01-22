@@ -14,9 +14,9 @@ export default function ContactMe() {
         </div>
       </Sidebar>
 
-      <div className="flex w-full flex-col ">
-        <div className="center flex h-[41px] w-full border-b border-t border-lines lg:border-t-0">
-          <div className="flex h-[41px] w-fit items-center gap-[48px] border-r border-lines pl-3.5 pr-3 text-secondary-lynch">
+      <div className="flex w-full flex-col">
+        <div className="center border-lines flex h-[41px] w-full border-t border-b lg:border-t-0">
+          <div className="border-lines text-secondary-lynch flex h-[41px] w-fit items-center gap-[48px] border-r pr-3 pl-3.5">
             contact-me.tsx <Icon icon="close" size={20} />
           </div>
         </div>

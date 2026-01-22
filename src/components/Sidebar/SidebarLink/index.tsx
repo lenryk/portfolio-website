@@ -25,7 +25,7 @@ export function SidebarLink({
   const className = clsx(
     "flex cursor-pointer select-none gap-[9px]",
     { "text-secondary": page === name.split(".")[0] },
-    { "text-secondary-lynch": page !== name.split(".")[0] }
+    { "text-secondary-lynch": page !== name.split(".")[0] },
   );
 
   if (isLink) {

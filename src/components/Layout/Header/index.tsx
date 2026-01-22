@@ -7,13 +7,10 @@ export function Header() {
   const currentRoute = usePathname();
 
   return (
-    <nav
-      className="hidden h-[56px] min-h-[56px] select-none
-    justify-between border-b border-solid border-lines text-secondary-lynch lg:flex"
-    >
+    <nav className="border-lines text-secondary-lynch hidden h-[56px] min-h-[56px] justify-between border-b border-solid select-none lg:flex">
       <Link
         id="name"
-        className="ml-6 max-w-[311px] border-solid border-lines py-4.5 lg:w-[311px] lg:border-r"
+        className="border-lines ml-6 max-w-[311px] border-solid py-4.5 lg:w-[311px] lg:border-r"
         href="/"
       >
         sam-carr
@@ -23,7 +20,7 @@ export function Header() {
           return (
             <div
               key="invisible"
-              className="relative hidden flex-grow border-r border-lines px-7 py-4.5 lg:block"
+              className="border-lines relative hidden flex-grow border-r px-7 py-4.5 lg:block"
             />
           );
         }
@@ -41,7 +38,7 @@ export function Header() {
           >
             {link.name}
             <div
-              className={`absolute bottom-0 left-0 h-[3px] w-full bg-accent-atomic-tangerine ${
+              className={`bg-accent-atomic-tangerine absolute bottom-0 left-0 h-[3px] w-full ${
                 currentRoute === link.href ? "" : "hidden"
               }`}
             ></div>
