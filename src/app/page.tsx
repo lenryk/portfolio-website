@@ -10,6 +10,10 @@ export default function Home() {
           <Heading
             size="h2"
             className="text-secondary-indigo pt-2"
+          >{`> Manchester based`}</Heading>
+            <Heading
+            size="h2"
+            className="text-secondary-indigo pt-2"
           >{`> Full Stack Developer`}</Heading>
         </div>
         <div className="text-secondary-lynch">
