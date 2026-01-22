@@ -12,8 +12,66 @@ export function CodeText({ children }: CodeTextProps) {
   const [lineLengthVisible, setLineLengthVisible] = useState(false);
   const observerRef = useRef<ResizeObserver | null>(null);
   const rafIdRef = useRef<number | null>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const containerPaddingRef = useRef(0);
 
-  const handleContentRef = useCallback((node: HTMLDivElement | null) => {
+  const updateLines = useCallback(() => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) {
+      return;
+    }
+
+    const containerHeight = Math.max(
+      0,
+      container.clientHeight - containerPaddingRef.current,
+    );
+    const contentHeight = content.scrollHeight;
+    const targetHeight = Math.max(containerHeight, contentHeight);
+    if (targetHeight <= 0) {
+      return;
+    }
+
+    const lineHeight = 28;
+    const needsContentLines = contentHeight > containerHeight;
+    const nextLines = Math.max(
+      1,
+      needsContentLines
+        ? Math.ceil(targetHeight / lineHeight)
+        : Math.floor(targetHeight / lineHeight),
+    );
+    setLinesLength((prev) => (prev === nextLines ? prev : nextLines));
+    setLineLengthVisible(true);
+  }, []);
+
+  const setupObserver = useCallback(() => {
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) {
+      return;
+    }
+
+    if (!observerRef.current) {
+      observerRef.current = new ResizeObserver(() => {
+        updateLines();
+      });
+    } else {
+      observerRef.current.disconnect();
+    }
+
+    observerRef.current.observe(container);
+    observerRef.current.observe(content);
+
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+    }
+    rafIdRef.current = requestAnimationFrame(() => {
+      updateLines();
+    });
+  }, [updateLines]);
+
+  const cleanup = useCallback(() => {
     if (observerRef.current) {
       observerRef.current.disconnect();
       observerRef.current = null;
@@ -22,34 +80,53 @@ export function CodeText({ children }: CodeTextProps) {
       cancelAnimationFrame(rafIdRef.current);
       rafIdRef.current = null;
     }
-
-    if (!node) {
-      return;
-    }
-
-    function updateLines() {
-      const nextHeight = node.firstElementChild?.clientHeight;
-      if (nextHeight === undefined) {
-        return;
-      }
-      setLinesLength(Math.round(nextHeight / 28) + 1);
-      setLineLengthVisible(true);
-    }
-
-    const observer = new ResizeObserver(() => {
-      updateLines();
-    });
-
-    observer.observe(node);
-    observerRef.current = observer;
-
-    rafIdRef.current = requestAnimationFrame(() => {
-      updateLines();
-    });
   }, []);
 
+  const handleContainerRef = useCallback(
+    (node: HTMLElement | null) => {
+      if (containerRef.current === node) {
+        return;
+      }
+
+      containerRef.current = node;
+
+      if (!node) {
+        cleanup();
+        return;
+      }
+
+      const styles = window.getComputedStyle(node);
+      containerPaddingRef.current =
+        parseFloat(styles.paddingTop) + parseFloat(styles.paddingBottom);
+
+      setupObserver();
+    },
+    [cleanup, setupObserver],
+  );
+
+  const handleContentRef = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (contentRef.current === node) {
+        return;
+      }
+
+      contentRef.current = node;
+
+      if (!node) {
+        cleanup();
+        return;
+      }
+
+      setupObserver();
+    },
+    [cleanup, setupObserver],
+  );
+
   return (
-    <article className="text-secondary-lynch flex p-6 text-lg lg:px-9">
+    <article
+      className="text-secondary-lynch flex flex-1 min-h-0 overflow-y-auto p-6 text-lg lg:px-9"
+      ref={handleContainerRef}
+    >
       <div
         className={`hidden transition-opacity duration-500 lg:block lg:opacity-0 ${
           lineLengthVisible ? "lg:opacity-100" : ""
