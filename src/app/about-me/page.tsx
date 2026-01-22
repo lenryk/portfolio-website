@@ -16,7 +16,7 @@ export default function AboutMe() {
   }
 
   return (
-    <div className="flex h-full flex-col lg:flex-row">
+    <div className="flex h-full min-h-0 flex-col lg:flex-row">
       <Sidebar name="_about-me">
         <div className="flex flex-col gap-[3px]">
           <SidebarSection title="file-explorer">
@@ -54,24 +54,28 @@ export default function AboutMe() {
         </div>
       </Sidebar>
 
-      <section className="flex basis-full flex-col lg:flex-row">
-        <div className="border-lines basis-3/6 border-0 border-r lg:mb-0">
-          <div className="border-lines flex h-[41px] border-t border-b lg:border-t-0">
+      <section className="flex min-h-0 flex-1 flex-col lg:flex-row">
+        <div className="border-lines flex min-h-0 flex-1 flex-col border-0 border-r lg:mb-0">
+          <div className="border-lines flex h-[41px] shrink-0 border-t border-b lg:border-t-0">
             <div className="border-lines text-secondary-lynch flex items-center border-r pr-3 pl-6 lg:pl-3.5">
               {page}.md <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="border-lines border-b" />
           </div>
-          <CodeText>{articles[page]}</CodeText>
+          <div className="flex min-h-0 flex-1 overflow-y-auto">
+            <CodeText>{articles[page]}</CodeText>
+          </div>
         </div>
-        <div className="basis-3/6 lg:mb-0">
-          <div className="border-lines flex h-[41px] border-t border-b lg:border-t-0">
+        <div className="flex min-h-0 flex-1 flex-col lg:mb-0">
+          <div className="border-lines flex h-[41px] shrink-0 border-t border-b lg:border-t-0">
             <div className="border-lines text-secondary-lynch flex items-center border-r pr-3 pl-6 lg:pl-3.5">
               README.md <Icon className="ml-7" icon="close" size={20} />
             </div>
             <div className="border-lines h-[41px] border-b" />
           </div>
-          <CodeText>{articles["readme"]}</CodeText>
+          <div className="flex min-h-0 flex-1 overflow-y-auto">
+            <CodeText>{articles["readme"]}</CodeText>
+          </div>
         </div>
       </section>
     </div>

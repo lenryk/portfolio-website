@@ -14,8 +14,6 @@ export default function Home() {
         </div>
         <div className="text-secondary-lynch">
           <p>// welcome to my portfolio website</p>
-          <p>// be sure to check out out my projects</p>
-          <p>// contact me if you have any questions</p>
           <div className="flex gap-4">
             <Button className="mt-4" as="link" href="/projects">
               view projects
