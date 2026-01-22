@@ -1,6 +1,6 @@
 "use client";
 import { Icon } from "@/components/Icon";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 type SidebarSectionProps = {
@@ -14,28 +14,20 @@ export function SidebarSection({
   children,
   className = "",
 }: SidebarSectionProps) {
-  const [isClient, setIsClient] = useState(false);
+  const itemsVisibleRef = useRef(false);
+  const [itemsVisible, setItemsVisible] = useState(false);
 
   useLayoutEffect(() => {
-    setIsClient(true);
+    itemsVisibleRef.current = window.innerWidth >= 1024;
+    const nextVisible = itemsVisibleRef.current;
+    setItemsVisible(nextVisible);
   }, []);
-
-  const [itemsVisible, setItemsVisible] = useState(() => {
-    if (isClient) {
-      return window.innerWidth >= 1024;
-    }
-    return false;
-  });
-
-  useLayoutEffect(() => {
-    if (isClient) {
-      setItemsVisible(window.innerWidth >= 1024);
-    }
-  }, [isClient]);
 
   useEffect(() => {
     function handleWindowResize() {
-      setItemsVisible(window.innerWidth >= 1024);
+      const nextVisible = window.innerWidth >= 1024;
+      itemsVisibleRef.current = nextVisible;
+      setItemsVisible(nextVisible);
     }
 
     window.addEventListener("resize", handleWindowResize);
@@ -43,7 +35,7 @@ export function SidebarSection({
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  });
+  }, []);
 
   return (
     <>

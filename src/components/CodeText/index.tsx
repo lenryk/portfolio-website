@@ -1,52 +1,47 @@
 "use client";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type CodeTextProps = {
   children: string;
 };
 
 export function CodeText({ children }: CodeTextProps) {
-  const [isClient, setIsClient] = useState(false);
   const contentRef = useRef<HTMLDivElement | null>(null);
-  const [height, setHeight] = useState(() => contentRef.current?.offsetHeight);
   const [linesLength, setLinesLength] = useState(20);
   const [lineLengthVisible, setLineLengthVisible] = useState(false);
 
-  useLayoutEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  function updateHeight() {
-    const nextHeight = contentRef.current?.firstElementChild?.clientHeight;
-    if (nextHeight !== undefined) {
-      setHeight(nextHeight);
-    }
-  }
-
-  useLayoutEffect(() => {
-    if (isClient) {
-      updateHeight();
-    }
-  }, [isClient, children]);
-
-  useLayoutEffect(() => {
-    setLinesLength(Math.round(height / 28) + 1);
-    setLineLengthVisible(true);
-  }, [height]);
-
   useEffect(() => {
-    function handleWindowResize() {
-      updateHeight();
+    const content = contentRef.current;
+    if (!content) {
+      return;
     }
 
-    window.addEventListener("resize", handleWindowResize);
+    function updateLines() {
+      const nextHeight = content.firstElementChild?.clientHeight;
+      if (nextHeight === undefined) {
+        return;
+      }
+      setLinesLength(Math.round(nextHeight / 28) + 1);
+      setLineLengthVisible(true);
+    }
+
+    const observer = new ResizeObserver(() => {
+      updateLines();
+    });
+
+    observer.observe(content);
+
+    const rafId = requestAnimationFrame(() => {
+      updateLines();
+    });
 
     return () => {
-      window.removeEventListener("resize", handleWindowResize);
+      cancelAnimationFrame(rafId);
+      observer.disconnect();
     };
-  });
+  }, [children]);
 
   return (
     <article className="text-secondary-lynch flex p-6 text-lg lg:px-9">
