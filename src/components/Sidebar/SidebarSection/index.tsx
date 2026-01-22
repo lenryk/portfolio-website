@@ -1,6 +1,6 @@
 "use client";
 import { Icon } from "@/components/Icon";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { ReactNode } from "react";
 
 type SidebarSectionProps = {
@@ -14,26 +14,36 @@ export function SidebarSection({
   children,
   className = "",
 }: SidebarSectionProps) {
-  const itemsVisibleRef = useRef(false);
   const [itemsVisible, setItemsVisible] = useState(false);
+  const headerNodeRef = useRef<HTMLDivElement | null>(null);
+  const cleanupRef = useRef<(() => void) | null>(null);
 
-  useLayoutEffect(() => {
-    itemsVisibleRef.current = window.innerWidth >= 1024;
-    const nextVisible = itemsVisibleRef.current;
-    setItemsVisible(nextVisible);
-  }, []);
-
-  useEffect(() => {
-    function handleWindowResize() {
-      const nextVisible = window.innerWidth >= 1024;
-      itemsVisibleRef.current = nextVisible;
-      setItemsVisible(nextVisible);
+  const handleHeaderRef = useCallback((node: HTMLDivElement | null) => {
+    if (headerNodeRef.current === node) {
+      return;
     }
 
-    window.addEventListener("resize", handleWindowResize);
+    if (cleanupRef.current) {
+      cleanupRef.current();
+      cleanupRef.current = null;
+    }
 
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
+    headerNodeRef.current = node;
+
+    if (!node) {
+      return;
+    }
+
+    function updateFromViewport() {
+      const nextVisible = window.innerWidth >= 1024;
+      setItemsVisible((prev) => (prev === nextVisible ? prev : nextVisible));
+    }
+
+    updateFromViewport();
+    window.addEventListener("resize", updateFromViewport);
+
+    cleanupRef.current = () => {
+      window.removeEventListener("resize", updateFromViewport);
     };
   }, []);
 
@@ -41,6 +51,7 @@ export function SidebarSection({
     <>
       <div
         className={`border-lines bg-lines lg:bg-primary-midnight flex h-[41px] items-center gap-[11px] border-0 border-b select-none ${className}`}
+        ref={handleHeaderRef}
       >
         <label htmlFor={title} className="flex cursor-pointer gap-[11px] pl-4">
           <Icon

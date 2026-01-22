@@ -1,25 +1,34 @@
 "use client";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 
 type CodeTextProps = {
   children: string;
 };
 
 export function CodeText({ children }: CodeTextProps) {
-  const contentRef = useRef<HTMLDivElement | null>(null);
   const [linesLength, setLinesLength] = useState(20);
   const [lineLengthVisible, setLineLengthVisible] = useState(false);
+  const observerRef = useRef<ResizeObserver | null>(null);
+  const rafIdRef = useRef<number | null>(null);
 
-  useEffect(() => {
-    const content = contentRef.current;
-    if (!content) {
+  const handleContentRef = useCallback((node: HTMLDivElement | null) => {
+    if (observerRef.current) {
+      observerRef.current.disconnect();
+      observerRef.current = null;
+    }
+    if (rafIdRef.current !== null) {
+      cancelAnimationFrame(rafIdRef.current);
+      rafIdRef.current = null;
+    }
+
+    if (!node) {
       return;
     }
 
     function updateLines() {
-      const nextHeight = content.firstElementChild?.clientHeight;
+      const nextHeight = node.firstElementChild?.clientHeight;
       if (nextHeight === undefined) {
         return;
       }
@@ -31,17 +40,13 @@ export function CodeText({ children }: CodeTextProps) {
       updateLines();
     });
 
-    observer.observe(content);
+    observer.observe(node);
+    observerRef.current = observer;
 
-    const rafId = requestAnimationFrame(() => {
+    rafIdRef.current = requestAnimationFrame(() => {
       updateLines();
     });
-
-    return () => {
-      cancelAnimationFrame(rafId);
-      observer.disconnect();
-    };
-  }, [children]);
+  }, []);
 
   return (
     <article className="text-secondary-lynch flex p-6 text-lg lg:px-9">
@@ -54,7 +59,7 @@ export function CodeText({ children }: CodeTextProps) {
           <div key={n}>{n}</div>
         ))}
       </div>
-      <div className="lg:ml-5" ref={contentRef}>
+      <div className="lg:ml-5" ref={handleContentRef}>
         <ReactMarkdown rehypePlugins={[rehypeRaw]}>{children}</ReactMarkdown>
       </div>
     </article>
