@@ -1,13 +1,11 @@
 "use client";
-import ReactMarkdown from "react-markdown";
-import rehypeRaw from "rehype-raw";
 import { useCallback, useRef, useState } from "react";
 
 type CodeTextProps = {
-  children: string;
+  html: string;
 };
 
-export function CodeText({ children }: CodeTextProps) {
+export function CodeText({ html }: CodeTextProps) {
   const [linesLength, setLinesLength] = useState(20);
   const [lineLengthVisible, setLineLengthVisible] = useState(false);
   const observerRef = useRef<ResizeObserver | null>(null);
@@ -136,9 +134,11 @@ export function CodeText({ children }: CodeTextProps) {
           <div key={n}>{n}</div>
         ))}
       </div>
-      <div className="lg:ml-5" ref={handleContentRef}>
-        <ReactMarkdown rehypePlugins={[rehypeRaw]}>{children}</ReactMarkdown>
-      </div>
+      <div
+        className="lg:ml-5"
+        ref={handleContentRef}
+        dangerouslySetInnerHTML={{ __html: html }}
+      />
     </article>
   );
 }

@@ -1,6 +1,6 @@
 const articles: Record<string, string> = {
-  "about-me": `**Hello world!** And welcome to my portfolio website.
-    </br></br>
+  "about-me": `<strong>Hello world!</strong> And welcome to my portfolio website.
+    <br/><br/>
     I’m Sam, a full stack software engineer who loves nothing better than getting my hands dirty and building stuff. Whether that's a dashboard, landing page, web scraper or a scalable serverless distributed system, I love the challenge of solving complex problems.
     <br/><br/>
     As a full stack software engineer, I strive to bridge the gap between the front-end and back-end realms. I enjoy working with both sides of the development process, from designing captivating user interfaces to architecting robust and scalable systems. I aim to create seamless experiences that leave a lasting impression on users (and not have them raging about bugs).
@@ -15,7 +15,7 @@ const articles: Record<string, string> = {
     <br/><br/>
     Aside from my interest in computers, I’m also an avid movie watcher and a big fan of anything by Chris Nolan. Before you ask, yes my favourite film is Inception. But controversially I don't think it's the best movie ever.
     <br/><br/>
-    Another area of interest which I’m very passionate about is SEO and entrepreneurship. I’ve built many affiliate websites over the years ranging from success to _great success_. But no matter how many websites I make, there’s a huge sense of achievement when you reach that number one spot on Google.
+    Another area of interest which I’m very passionate about is SEO and entrepreneurship. I’ve built many affiliate websites over the years ranging from success to <em>great success</em>. But no matter how many websites I make, there’s a huge sense of achievement when you reach that number one spot on Google.
     `,
   experience: `Over the years I’ve had experience with several languages, frameworks and libraries.
     <br/><br/>
@@ -27,17 +27,17 @@ const articles: Record<string, string> = {
     `,
   skills: `Just in case you’re interested in what tech stack I’ve used / usually use. Here's a dump of my tech skills.
     <br/><br/>
-    **Languages**: JavaScript, Python, TypeScript (non-commercial), MySQL
+    <strong>Languages</strong>: JavaScript, Python, TypeScript (non-commercial), MySQL
     <br/><br/>
-    **Frameworks**: React, Next.js, Gatsby, Flask, Chalice, FastAPI, Tailwind, Styled Components, SASS, React Query
+    <strong>Frameworks</strong>: React, Next.js, Gatsby, Flask, Chalice, FastAPI, Tailwind, Styled Components, SASS, React Query
     <br/><br/>
-    **Testing**: Cypress, Jest, React Testing Library, Storybook, PyTest
+    <strong>Testing</strong>: Cypress, Jest, React Testing Library, Storybook, PyTest
     <br/><br/>
-    **CI/CD**: GitHub actions
+    <strong>CI/CD</strong>: GitHub actions
     <br/><br/>
-    **Cloud**: AWS (Lambdas, EC2s, Aurora, Cloud Watch)
+    <strong>Cloud</strong>: AWS (Lambdas, EC2s, Aurora, Cloud Watch)
     <br/><br/>
-    **Monitoring**: Cloud Watch, DataDog
+    <strong>Monitoring</strong>: Cloud Watch, DataDog
     `,
   readme: `Hey you! Welcome to my website and thanks for checking it out.
     <br/><br/>
@@ -49,17 +49,17 @@ const articles: Record<string, string> = {
     <br/><br/>
     If you have any questions, job offers, or just want a chat about how great JS/TS is, then feel free to send me a message via email or LinkedIn.
     <br/><br/>
-    **FAQ Section**
+    <strong>FAQ Section</strong>
     <br/><br/>
-    > _What was this site made in?_
+    <blockquote><em>What was this site made in?</em></blockquote>
     <br/><br/>
     Next.js for the main routing and serverside rending. Tailwind for the styling.
     <br/><br/>
-    > _Did you design it yourself?_
+    <blockquote><em>Did you design it yourself?</em></blockquote>
     <br/><br/>
     The website was inspired by a free community Figma design but I tweaked it for my own needs.
     <br/><br/>
-    > _Are you open to job offers?_
+    <blockquote><em>Are you open to job offers?</em></blockquote>
     <br/><br/>
     If you’re building something super cool and use the JS/TS ecosystem then feel free to drop me a message.
     `,

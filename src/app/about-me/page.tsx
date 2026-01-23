@@ -62,7 +62,7 @@ export default function AboutMe() {
             </div>
             <div className="border-lines border-b" />
           </div>
-          <CodeText>{articles[page]}</CodeText>
+          <CodeText html={articles[page]} />
         </div>
         <div className="flex min-h-0 flex-1 flex-col lg:mb-0">
           <div className="border-lines flex h-[41px] shrink-0 border-t border-b lg:border-t-0">
@@ -71,7 +71,7 @@ export default function AboutMe() {
             </div>
             <div className="border-lines h-[41px] border-b" />
           </div>
-          <CodeText>{articles["readme"]}</CodeText>
+          <CodeText html={articles["readme"]} />
         </div>
       </section>
     </div>

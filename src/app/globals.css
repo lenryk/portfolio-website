@@ -7,6 +7,11 @@
     line-height: 9px;
     background: url("../../public/assets/images/round-headshot.png") center
       no-repeat;
+    background-image: image-set(
+      url("../../public/assets/images/round-headshot.avif") type("image/avif"),
+      url("../../public/assets/images/round-headshot.webp") type("image/webp"),
+      url("../../public/assets/images/round-headshot.png") type("image/png")
+    );
     background-size: contain;
     letter-spacing: -2px;
     -webkit-text-fill-color: rgba(255, 255, 255, 0.1);
