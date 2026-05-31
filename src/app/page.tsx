@@ -11,7 +11,7 @@ export default function Home() {
             size="h2"
             className="text-secondary-indigo pt-2"
           >{`> Manchester based`}</Heading>
-            <Heading
+          <Heading
             size="h2"
             className="text-secondary-indigo pt-2"
           >{`> Full Stack Developer`}</Heading>
