@@ -15,7 +15,7 @@ const firaCode = localFont({
 export const metadata = {
   title: "Sam Carr - Full Stack Software Engineer - UK",
   description:
-    "This website was created with Next.js + Tailwind. Check my Github for the full source code.",
+    "This website was created with Next.js + Tailwind. Check my GitHub for the full source code.",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

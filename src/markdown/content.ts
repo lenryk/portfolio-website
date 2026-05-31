@@ -7,9 +7,9 @@ const articles = {
     <br/><br/>
     Before becoming a software engineer, I worked in digital marketing and had a keen interest in SEO (search engine optimisation) and content marketing. But after spending countless hours fixing technical SEO issues (cumulative layout shifts, time-to-first-byte delays, server-side redirects) I finally took the plunge into becoming a professional software engineer.
     <br/><br/>
-    The journey hasn’t been easy. With nothing more than a B in GCSE ICT, I’ve self-taught myself almost everything I know. Thankfully I’m too persistent to quit and I can’t imagine myself in any other career.
+    The journey hasn’t been easy. With nothing more than a B in GCSE ICT, I’ve taught myself almost everything I know. Thankfully I’m too persistent to quit and I can’t imagine myself in any other career.
     `,
-  interests: `All my life I’ve been interested in computers and programming. But I didn’t think someone would ever pay me money to do it professionally. Luckily, it turns out that there are someone people out there who believe in me.
+  interests: `All my life I’ve been interested in computers and programming. But I didn’t think someone would ever pay me money to do it professionally. Luckily, it turns out that there are some people out there who believe in me.
     <br/><br/>
     When it comes to languages and frameworks my current interests are in the JavaScript / TypeScript ecosystem which includes React, Next.js, Bun and Node.js.
     <br/><br/>
@@ -19,7 +19,7 @@ const articles = {
     `,
   experience: `Over the years I’ve had experience with several languages, frameworks and libraries.
     <br/><br/>
-    From the front-end side, my main experience is in React and all of its corresponding frameworks/libraries. I originally started building websites with create react app but quickly advanced to Gatsby as it was all the rage at the time. In recent months I’ve found myself repeatedly using Next.js due to its server-side rending abilities which I think is fantastic.
+    From the front-end side, my main experience is in React and all of its corresponding frameworks/libraries. I originally started building websites with create react app but quickly advanced to Gatsby as it was all the rage at the time. In recent months I’ve found myself repeatedly using Next.js due to its server-side rendering abilities which I think is fantastic.
     <br/><br/>
     I currently work for a SaaS company called Lunio and have been there since its inception (although I didn't start out as a software engineer). During my time there I’ve worked on all aspects of the product from migrating the legacy Vue dashboard to React and migrating the legacy PHP API to Python.
     <br/><br/>
@@ -53,7 +53,7 @@ const articles = {
     <br/><br/>
     <blockquote><em>What was this site made in?</em></blockquote>
     <br/><br/>
-    Next.js for the main routing and serverside rending. Tailwind for the styling.
+    Next.js for the main routing and server-side rendering. Tailwind for the styling.
     <br/><br/>
     <blockquote><em>Did you design it yourself?</em></blockquote>
     <br/><br/>

@@ -39,7 +39,7 @@ export const projects = {
     id: 3,
     url: "https://samcarr.co.uk/heardle",
     githubUrl: "",
-    text: "A music guessing game similar to the popular worlde built with Next.js & Typescript featuring numerous artists.",
+    text: "A music guessing game similar to the popular Wordle built with Next.js & TypeScript featuring numerous artists.",
     icons: ["next.js", "react", "tailwind", "typescript"],
   },
   "more-coming-soon": {

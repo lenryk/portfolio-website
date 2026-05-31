@@ -23,7 +23,7 @@ export default function ContactMeSuccess() {
         <div className="my-auto flex flex-col items-center">
           <Heading size="h2">Thank you! 🤘</Heading>
           <p className="text-secondary-lynch mt-2.5 w-[380px] text-center">
-            Your message has been sent. You will receive an answer real soon!
+            Your message has been sent. You will receive a reply soon!
           </p>
           <Button className="mt-9" as="link" href="/contact-me">
             send-new-message
