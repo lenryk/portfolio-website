@@ -18,12 +18,14 @@ export function Input({ type, label, children }: InputProps) {
         <textarea
           className="border-lines bg-primary-blue-charcoal text-secondary-lynch focus:border-secondary-lynch h-[145px] resize-none rounded-lg border p-4 outline-none focus:outline-1"
           id={label}
+          name={label}
           required
         />
       ) : (
         <input
           className="border-lines bg-primary-blue-charcoal text-secondary-lynch focus:border-secondary-lynch h-[41px] rounded-lg border pl-4 outline-none focus:outline-1"
           id={label}
+          name={label}
           type={type}
           required
         />
