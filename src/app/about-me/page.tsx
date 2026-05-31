@@ -4,15 +4,19 @@ import { SidebarLink } from "@/components/Sidebar/SidebarLink";
 import { ContactSidebar } from "@/components/Sidebar/ContactSidebar";
 import { Icon } from "@/components/Icon";
 import { CodeText } from "@/components/CodeText";
-import { useState } from "react";
+import { type MouseEvent, useState } from "react";
 import articles from "@/markdown/content";
 import { SidebarSection } from "@/components/Sidebar/SidebarSection";
 
 export default function AboutMe() {
-  const [page, setPage] = useState("about-me");
+  const [page, setPage] = useState<keyof typeof articles>("about-me");
 
-  function handleClick(event) {
-    setPage(event.target.id);
+  function handleClick(event: MouseEvent<HTMLDivElement>) {
+    const nextPage = event.currentTarget.id;
+
+    if (nextPage in articles) {
+      setPage(nextPage as keyof typeof articles);
+    }
   }
 
   return (
@@ -71,7 +75,7 @@ export default function AboutMe() {
             </div>
             <div className="border-lines h-[41px] border-b" />
           </div>
-          <CodeText html={articles["readme"]} />
+          <CodeText html={articles.readme} />
         </div>
       </section>
     </div>

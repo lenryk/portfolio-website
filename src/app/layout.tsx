@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Container } from "@/components/Layout/Container";
 import localFont from "next/font/local";
+import type { ReactNode } from "react";
 
 const firaCode = localFont({
   src: [
@@ -17,7 +18,7 @@ export const metadata = {
     "This website was created with Next.js + Tailwind. Check my Github for the full source code.",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${firaCode.variable} h-full`}>
       <body className="bg-main-bg flex h-full overflow-hidden p-4 sm:p-6">

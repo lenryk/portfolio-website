@@ -22,7 +22,7 @@ export function FilterRow({ name, checked, onClick }: FilterRowProps) {
         className={checked ? "" : "opacity-40"}
       />{" "}
       <span className={checked ? "text-secondary" : ""}>
-        {`${name[0].toUpperCase()}${name.substring(1)}`}
+        {`${name.charAt(0).toUpperCase()}${name.substring(1)}`}
       </span>
     </div>
   );
